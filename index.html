@@ -138,13 +138,13 @@
       color: #4CAF50;
     }
 
-    /* Estilo para la imagen del logo en la sección de inicio */
-    .logo-inicio {
-      max-width: 250px; /* Tamaño máximo del logo */
+    /* Estilo para la imagen principal en la sección de inicio */
+    .main-hero-image {
+      max-width: 350px; /* Tamaño máximo del logo, un poco más grande */
       height: auto;
-      margin-bottom: 30px; /* Espacio debajo del logo */
+      margin-bottom: 30px; /* Espacio debajo de la imagen */
       border-radius: 15px; /* Bordes ligeramente redondeados */
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Sombra suave para un efecto 3D */
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
     }
 
     /* Navegación Principal (para escritorio) */
@@ -188,27 +188,21 @@
       transform: scale(1.05); /* Ligeramente más grande */
     }
 
-    /* Contenedor del botón principal para moverlo a la derecha */
-    .button-container {
-      width: 100%;
-      max-width: 800px; /* Mismo max-width que el párrafo */
-      display: flex;
-      justify-content: flex-end; /* Alinea el contenido a la derecha */
-      margin-top: 20px; /* Margen superior para separarlo del contenido */
-    }
-
-    /* Botones Principales */
+    /* Botones Principales (CTA) */
     .main-button {
-      padding: 15px 30px; /* Más padding */
+      margin-top: 30px; /* Margen superior para separarlo del contenido */
+      padding: 18px 35px; /* Más padding para que se vea más como CTA */
       background-color: #f44336; /* Rojo de acento */
       border: none;
       color: white;
-      font-size: 1.15em;
+      font-size: 1.25em; /* Tamaño de fuente más grande */
       cursor: pointer;
       border-radius: 8px; /* Bordes más suaves */
       transition: background-color 0.3s ease, transform 0.2s ease;
       font-weight: 700;
       box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4); /* Sombra para resaltar */
+      text-decoration: none; /* Si se usa como <a> */
+      display: inline-block; /* Si se usa como <a> */
     }
 
     .main-button:hover {
@@ -365,16 +359,12 @@
       }
 
       .main-button {
-        padding: 12px 25px;
-        font-size: 1em;
+        padding: 15px 30px; /* Un poco más grande para móviles también */
+        font-size: 1.1em;
       }
 
-      .button-container {
-        padding-right: 20px; /* Ajusta el padding para móviles */
-      }
-
-      .logo-inicio {
-        max-width: 180px; /* Ajustar tamaño del logo para móviles */
+      .main-hero-image {
+        max-width: 250px; /* Ajustar tamaño del logo para móviles */
         margin-bottom: 20px;
       }
     }
@@ -399,7 +389,8 @@
   </div>
 
   <div class="mobile-side-menu" id="mobile-menu">
-    <button class="close-btn" id="close-menu-btn">&times;</button> <button data-section-index="0" onclick="goToSection(0)">Inicio</button>
+    <button class="close-btn" id="close-menu-btn">&times;</button>
+    <button data-section-index="0" onclick="goToSection(0)">Inicio</button>
     <button data-section-index="1" onclick="goToSection(1)">Quiénes Somos</button>
     <button data-section-index="2" onclick="goToSection(2)">Propósito</button>
     <button data-section-index="3" onclick="goToSection(3)">Público Objetivo</button>
@@ -410,21 +401,16 @@
 
   <div class="container" id="sections-container">
     <div id="inicio" class="section">
-      <img src="logo-siquem.png" alt="Logo de Siquem - Salud y Cultivo Medicinal" class="logo-inicio">
+      <img src="cannabis-book.png" alt="Siquem - Cannabis Medicinal y Libro" class="main-hero-image">
       <h1>Siquem</h1>
       <h2>Salud y Cultivo Cannábico Medicinal</h2>
-      <p>Educación, bienestar y comunidad</p>
-      <div class="button-container">
-        <button class="main-button" onclick="goToSection(1)">Descubre Más</button>
-      </div>
+      <p>Explora un mundo de conocimiento y bienestar sobre el cannabis con nosotros. ¡Tu camino hacia el autocultivo y la salud comienza aquí!</p>
+      <button class="main-button" onclick="goToSection(1)">¡Comienza tu Aprendizaje!</button>
     </div>
 
     <div id="quienes-somos" class="section">
       <h2>¿Quiénes Somos?</h2>
       <p>Somos <strong>Siquem</strong>, un club de cannabis medicinal comprometido con la salud integral, la educación y el desarrollo comunitario. Creamos un espacio seguro y responsable para que las personas mejoren su calidad de vida a través del uso terapéutico del cannabis, promoviendo el bienestar desde la raíz.</p>
-      <div class="button-container">
-        <button class="main-button" onclick="goToSection(2)">Nuestro Propósito</button>
-      </div>
     </div>
 
     <div id="proposito" class="section">
@@ -433,9 +419,6 @@
       <p>Ofrecer un espacio seguro y responsable donde las personas puedan mejorar su calidad de vida mediante el uso terapéutico del cannabis. Nos enfocamos en el bienestar, la educación y el compromiso social, brindando asesoramiento profesional, productos de calidad y formación confiable para la comunidad.</p>
       <h3>Versión Larga:</h3>
       <p>Crear un espacio seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis. Basamos nuestro proyecto en tres pilares fundamentales: el **bienestar individual**, mediante un servicio de calidad con asesoramiento profesional y productos controlados; la **educación**, ofreciendo contenidos confiables, talleres y charlas formativas; y el **compromiso social**, impulsando acciones comunitarias orientadas al desarrollo integral y la inclusión. Buscamos generar un impacto positivo en la salud, la conciencia y el empoderamiento de nuestra comunidad, cumpliendo con las normativas vigentes y promoviendo una cultura de uso medicinal consciente y responsable.</p>
-      <div class="button-container">
-        <button class="main-button" onclick="goToSection(3)">Nuestro Público</button>
-      </div>
     </div>
 
     <div id="publico-objetivo" class="section">
@@ -444,9 +427,6 @@
       <p>Nos dirigimos a **personas adultas** que buscan mejorar su salud y bienestar a través del uso terapéutico del cannabis, así como a **cuidadores, profesionales de la salud y miembros de la comunidad** interesados en la educación, el autocultivo y el acceso responsable a esta herramienta medicinal.</p>
       <h3>Versión Detallada:</h3>
       <p>Nuestro público objetivo está conformado por personas mayores de edad interesadas en mejorar su calidad de vida a través del uso terapéutico del cannabis. Nos enfocamos especialmente en quienes buscan alternativas naturales y seguras para el tratamiento de dolencias físicas o emocionales, como el dolor crónico, la ansiedad, el insomnio, enfermedades inflamatorias u otras condiciones médicas. También nos dirigimos a familiares, cuidadores y profesionales de la salud que deseen aprender más sobre el uso responsable del cannabis medicinal, así como a miembros de la comunidad interesados en la educación, el autocultivo y el bienestar integral. Buscamos llegar a una audiencia consciente, con interés en la salud, la educación y el desarrollo comunitario, promoviendo la inclusión, el acceso a información confiable y la participación activa en un entorno seguro y legal.</p>
-      <div class="button-container">
-        <button class="main-button" onclick="goToSection(4)">Sobre el Cultivo</button>
-      </div>
     </div>
 
     <div id="modelo-cultivo" class="section">
@@ -456,9 +436,6 @@
         <li><strong>Ciclo de Cultivo:</strong> Implementamos una **planificación de cultivos escalonados** para garantizar una producción continua y satisfacer la demanda de la comunidad de manera eficiente.</li>
         <li><strong>Capacitación:</strong> Fomentamos la **formación constante** en buenas prácticas agrícolas, higiene rigurosa, control de plagas orgánico y técnicas de cosecha óptimas.</li>
       </ul>
-      <div class="button-container">
-        <button class="main-button" onclick="goToSection(5)">Qué Ofrecemos</button>
-      </div>
     </div>
 
     <div id="informacion-general" class="section">
@@ -471,9 +448,6 @@
         <li>**Asesoramiento personalizado** y acompañamiento profesional en tu camino.</li>
         <li>**Talleres y charlas formativas** para profundizar tus conocimientos.</li>
       </ul>
-      <div class="button-container">
-        <button class="main-button" onclick="goToSection(6)">Contáctanos</button>
-      </div>
     </div>
 
     <div id="contacto" class="section">
@@ -485,9 +459,7 @@
          📢 Canal de Telegram: <a href="https://t.me/saludycultivocannabico" target="_blank">@saludycultivocannabico</a><br>
          📧 Email: <a href="mailto:canal.siquem@gmail.com">canal.siquem@gmail.com</a>
       </p>
-      <div class="button-container">
-        <button class="main-button" onclick="goToSection(0)">Volver al Inicio</button>
-      </div>
+      <button class="main-button" onclick="goToSection(0)">Volver al Inicio</button>
     </div>
   </div>
 
