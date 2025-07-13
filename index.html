@@ -34,7 +34,8 @@
             width: 100%;
             z-index: 1000; /* Asegura que esté por encima de todo */
             box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para destacarlo */
-            transition: padding 0.3s ease, background-color 0.3s ease; /* Transición suave */
+            /* Eliminamos las transiciones de padding y font-size para un cambio instantáneo */
+            transition: background-color 0.3s ease; /* Solo transición para el color de fondo si se desea */
         }
         header.header-scrolled {
             padding: 2px 0; /* MUCHO MÁS PEQUEÑO padding cuando se hace scroll */
@@ -46,7 +47,7 @@
             font-size: 4.5em; /* Tamaño inicial */
             font-weight: 700;
             letter-spacing: 2px;
-            transition: font-size 0.3s ease; /* Transición suave */
+            /* Eliminamos la transición de font-size para un cambio instantáneo */
         }
         header.header-scrolled h1 {
             font-size: 1.6em; /* MÁS GRANDE cuando se hace scroll para ocupar más espacio */
@@ -60,7 +61,7 @@
             border-bottom: 3px solid #e74c3c; /* Línea roja debajo del párrafo */
             display: inline-block;
             margin-bottom: 0;
-            transition: font-size 0.3s ease, opacity 0.3s ease, margin 0.3s ease, padding-bottom 0.3s ease; /* Transición suave */
+            /* Eliminamos las transiciones de font-size, opacity, margin, padding-bottom para un cambio instantáneo */
         }
         header.header-scrolled p {
             font-size: 0.1em; /* Prácticamente invisible */
@@ -82,7 +83,7 @@
             justify-content: space-between;
             width: 35px;
             height: 25px;
-            transition: top 0.3s ease, width 0.3s ease, height 0.3s ease; /* Transición suave */
+            /* Eliminamos las transiciones de top, width, height para un cambio instantáneo */
         }
         header.header-scrolled .menu-icon {
             top: 6px; /* Ajusta la posición para el header más pequeño */
@@ -94,7 +95,7 @@
             height: 4px;
             background-color: #fff; /* Rayas blancas */
             border-radius: 2px;
-            transition: height 0.3s ease;
+            /* Eliminamos la transición de height para un cambio instantáneo */
         }
         header.header-scrolled .menu-icon span {
             height: 2px; /* Rayas aún más delgadas */
@@ -339,12 +340,14 @@
     </header>
 
     <div class="container">
+        <!-- SECCIÓN: NUESTRO PROPÓSITO -->
         <section id="proposito" class="section">
             <h2>Nuestro Propósito</h2>
-            <p>El propósito principal de **Siquem** es crear un espacio seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis.</p>
+            <p>El propósito principal de **Siquem** es crear un ambiente seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis.</p>
             <p>Nos enfocamos en el bienestar, la educación y el compromiso social, brindando asesoramiento profesional, productos de calidad controlada y formación confiable para la comunidad. Nuestro objetivo final es generar un impacto positivo en la salud, la conciencia y el empoderamiento de la comunidad, operando siempre bajo las normativas vigentes y promoviendo una cultura de uso medicinal consciente y responsable.</p>
         </section>
 
+        <!-- SECCIÓN: NUESTRA MISIÓN -->
         <section id="mision" class="section">
             <h2>Nuestra Misión</h2>
             <p>La misión de Siquem es crear un ambiente seguro y responsable donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis. Nuestro enfoque principal es promover el bienestar, la educación y el compromiso con la comunidad.</p>
@@ -366,6 +369,7 @@
             <p>Nuestro objetivo es generar un impacto positivo en la salud y la conciencia de nuestra comunidad, operando siempre bajo las normativas vigentes y promoviendo un uso consciente y responsable del cannabis medicinal.</p>
         </section>
 
+        <!-- SECCIÓN: NUESTRA VISIÓN -->
         <section id="vision" class="section">
             <h2>Nuestra Visión</h2>
             <p>La visión de Siquem es convertirse en un referente en el ámbito del cannabis medicinal, promoviendo el bienestar integral de sus miembros y asegurando el crecimiento sostenido del proyecto. Aspiramos a ser un espacio donde la calidad de vida de las personas se mejore continuamente a través del uso terapéutico y responsable del cannabis.</p>
@@ -394,6 +398,7 @@
         </section>
 
 
+        <!-- SECCIÓN: QUIÉNES SOMOS -->
         <section id="miembros" class="section">
             <h2>¿Quiénes Son Nuestros Miembros?</h2>
             <p>Nos dirigimos a **adultos interesados en mejorar su salud y bienestar** mediante el uso terapéutico del cannabis.</p>
@@ -420,6 +425,7 @@
             <p>Buscamos crear un entorno seguro y legal que fomente la inclusión, el acceso a información verificada y la participación activa de todos.</p>
         </section>
 
+        <!-- SECCIÓN: NUESTRAS METAS -->
         <section id="metas" class="section">
             <h2>Nuestras Metas Clave</h2>
             <div class="goals-list">
@@ -442,6 +448,7 @@
             </div>
         </section>
 
+        <!-- SECCIÓN: MODELO DE CULTIVO -->
         <section id="cultivo" class="section">
             <h2>Nuestro Enfoque de Cultivo</h2>
             <div class="cultivation-model">
