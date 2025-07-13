@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Siquem - Salud y Cultivo Cannábico Medicinal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siquem - Salud y Cultivo Cannábico Medicinal</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     /* Reset y Tipografía */
@@ -131,6 +132,15 @@
       position: absolute;
       left: 0;
       color: #4CAF50;
+    }
+
+    /* Estilo para la imagen del logo en la sección de inicio */
+    .logo-inicio {
+      max-width: 250px; /* Tamaño máximo del logo */
+      height: auto;
+      margin-bottom: 30px; /* Espacio debajo del logo */
+      border-radius: 15px; /* Bordes ligeramente redondeados */
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Sombra suave para un efecto 3D */
     }
 
     /* Navegación */
@@ -272,6 +282,11 @@
       .button-container {
         padding-right: 20px; /* Ajusta el padding para móviles */
       }
+
+      .logo-inicio {
+        max-width: 180px; /* Ajustar tamaño del logo para móviles */
+        margin-bottom: 20px;
+      }
     }
   </style>
 </head>
@@ -289,6 +304,7 @@
 
   <div class="container" id="sections-container">
     <div id="inicio" class="section">
+      <img src="logo-siquem.png" alt="Logo de Siquem - Salud y Cultivo Medicinal" class="logo-inicio">
       <h1>Siquem</h1>
       <h2>Salud y Cultivo Cannábico Medicinal</h2>
       <p>Educación, bienestar y comunidad</p>
@@ -383,16 +399,19 @@
 
     // Función para ir a una sección específica
     function goToSection(index) {
-      if (index >= 0 && index < sections.length && index !== currentIndex) {
+      if (index >= 0 && index < sections.length) { // Permite ir a la misma sección para solo actualizar nav
         // Remover clases de todas las secciones
         sections.forEach((section) => {
           section.classList.remove('active', 'prev');
           section.style.display = 'none'; // Ocultar por defecto
         });
 
-        // Asignar clases para la transición
-        sections[currentIndex].classList.add('prev'); // La sección actual se convierte en "anterior"
-        sections[currentIndex].style.display = 'flex'; // Asegurar que sea visible para la transición
+        // Asignar clases para la transición (si hay cambio de índice)
+        if (index !== currentIndex) {
+            sections[currentIndex].classList.add('prev'); // La sección actual se convierte en "anterior"
+            sections[currentIndex].style.display = 'flex'; // Asegurar que sea visible para la transición
+        }
+
         sections[index].classList.add('active'); // La nueva sección se activa
         sections[index].style.display = 'flex'; // Asegurar que sea visible para la transición
 
@@ -400,9 +419,6 @@
         currentIndex = index;
 
         // Resaltar botón de navegación activo
-        updateNavButtons();
-      } else if (index === currentIndex) {
-        // Si ya estamos en la sección, solo aseguramos que el botón esté resaltado
         updateNavButtons();
       }
     }
