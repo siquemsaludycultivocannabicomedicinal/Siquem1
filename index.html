@@ -2,8 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>Siquem - Salud y Cultivo Cannábico Medicinal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Siquem - Salud y Cultivo Cannábico Medicinal</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     /* Reset y Tipografía */
@@ -32,9 +31,6 @@
       display: flex;
       width: 100%;
       height: 100vh; /* Ocupa toda la altura de la pantalla */
-      /* scroll-snap-type: x mandatory; Removido para mejor control con JS del swipe */
-      -webkit-overflow-scrolling: touch; /* Para un desplazamiento suave en iOS */
-      /* overflow-x: auto; Removido para mejor control con JS del swipe */
       overflow-y: hidden; /* Oculta la barra de desplazamiento vertical del contenedor */
     }
 
@@ -84,7 +80,6 @@
         -ms-overflow-style: none;  /* IE and Edge */
         scrollbar-width: none;  /* Firefox */
     }
-
 
     h1 {
       color: #4CAF50;
@@ -161,18 +156,35 @@
       font-weight: 600;
       padding: 5px 10px;
       border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
       white-space: nowrap; /* Evita que el texto del botón se rompa */
     }
 
     nav button:hover {
       color: #f44336; /* Color de acento al pasar el mouse */
       background-color: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px); /* Pequeño efecto hover */
+    }
+
+    /* Estilo para el botón de navegación activo */
+    nav button.active-nav-btn {
+      color: #4CAF50; /* Color verde para el botón activo */
+      font-weight: 700;
+      border-bottom: 2px solid #4CAF50; /* Línea inferior para resaltar */
+      transform: scale(1.05); /* Ligeramente más grande */
+    }
+
+    /* Contenedor del botón principal para moverlo a la derecha */
+    .button-container {
+      width: 100%;
+      max-width: 800px; /* Mismo max-width que el párrafo */
+      display: flex;
+      justify-content: flex-end; /* Alinea el contenido a la derecha */
+      margin-top: 20px; /* Margen superior para separarlo del contenido */
     }
 
     /* Botones Principales */
     .main-button {
-      margin-top: 30px; /* Más margen superior */
       padding: 15px 30px; /* Más padding */
       background-color: #f44336; /* Rojo de acento */
       border: none;
@@ -256,19 +268,23 @@
         padding: 12px 25px;
         font-size: 1em;
       }
+
+      .button-container {
+        padding-right: 20px; /* Ajusta el padding para móviles */
+      }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <button onclick="goToSection(0)">Inicio</button>
-    <button onclick="goToSection(1)">Quiénes Somos</button>
-    <button onclick="goToSection(2)">Propósito</button>
-    <button onclick="goToSection(3)">Público Objetivo</button>
-    <button onclick="goToSection(4)">Cultivo</button>
-    <button onclick="goToSection(5)">Información</button>
-    <button onclick="goToSection(6)">Contacto</button>
+    <button data-section-index="0" onclick="goToSection(0)">Inicio</button>
+    <button data-section-index="1" onclick="goToSection(1)">Quiénes Somos</button>
+    <button data-section-index="2" onclick="goToSection(2)">Propósito</button>
+    <button data-section-index="3" onclick="goToSection(3)">Público Objetivo</button>
+    <button data-section-index="4" onclick="goToSection(4)">Cultivo</button>
+    <button data-section-index="5" onclick="goToSection(5)">Información</button>
+    <button data-section-index="6" onclick="goToSection(6)">Contacto</button>
   </nav>
 
   <div class="container" id="sections-container">
@@ -276,13 +292,17 @@
       <h1>Siquem</h1>
       <h2>Salud y Cultivo Cannábico Medicinal</h2>
       <p>Educación, bienestar y comunidad</p>
-      <button class="main-button" onclick="goToSection(1)">Descubre Más</button>
+      <div class="button-container">
+        <button class="main-button" onclick="goToSection(1)">Descubre Más</button>
+      </div>
     </div>
 
     <div id="quienes-somos" class="section">
       <h2>¿Quiénes Somos?</h2>
       <p>Somos <strong>Siquem</strong>, un club de cannabis medicinal comprometido con la salud integral, la educación y el desarrollo comunitario. Creamos un espacio seguro y responsable para que las personas mejoren su calidad de vida a través del uso terapéutico del cannabis, promoviendo el bienestar desde la raíz.</p>
-      <button class="main-button" onclick="goToSection(2)">Nuestro Propósito</button>
+      <div class="button-container">
+        <button class="main-button" onclick="goToSection(2)">Nuestro Propósito</button>
+      </div>
     </div>
 
     <div id="proposito" class="section">
@@ -291,7 +311,9 @@
       <p>Ofrecer un espacio seguro y responsable donde las personas puedan mejorar su calidad de vida mediante el uso terapéutico del cannabis. Nos enfocamos en el bienestar, la educación y el compromiso social, brindando asesoramiento profesional, productos de calidad y formación confiable para la comunidad.</p>
       <h3>Versión Larga:</h3>
       <p>Crear un espacio seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis. Basamos nuestro proyecto en tres pilares fundamentales: el **bienestar individual**, mediante un servicio de calidad con asesoramiento profesional y productos controlados; la **educación**, ofreciendo contenidos confiables, talleres y charlas formativas; y el **compromiso social**, impulsando acciones comunitarias orientadas al desarrollo integral y la inclusión. Buscamos generar un impacto positivo en la salud, la conciencia y el empoderamiento de nuestra comunidad, cumpliendo con las normativas vigentes y promoviendo una cultura de uso medicinal consciente y responsable.</p>
-      <button class="main-button" onclick="goToSection(3)">Nuestro Público</button>
+      <div class="button-container">
+        <button class="main-button" onclick="goToSection(3)">Nuestro Público</button>
+      </div>
     </div>
 
     <div id="publico-objetivo" class="section">
@@ -300,7 +322,9 @@
       <p>Nos dirigimos a **personas adultas** que buscan mejorar su salud y bienestar a través del uso terapéutico del cannabis, así como a **cuidadores, profesionales de la salud y miembros de la comunidad** interesados en la educación, el autocultivo y el acceso responsable a esta herramienta medicinal.</p>
       <h3>Versión Detallada:</h3>
       <p>Nuestro público objetivo está conformado por personas mayores de edad interesadas en mejorar su calidad de vida a través del uso terapéutico del cannabis. Nos enfocamos especialmente en quienes buscan alternativas naturales y seguras para el tratamiento de dolencias físicas o emocionales, como el dolor crónico, la ansiedad, el insomnio, enfermedades inflamatorias u otras condiciones médicas. También nos dirigimos a familiares, cuidadores y profesionales de la salud que deseen aprender más sobre el uso responsable del cannabis medicinal, así como a miembros de la comunidad interesados en la educación, el autocultivo y el bienestar integral. Buscamos llegar a una audiencia consciente, con interés en la salud, la educación y el desarrollo comunitario, promoviendo la inclusión, el acceso a información confiable y la participación activa en un entorno seguro y legal.</p>
-      <button class="main-button" onclick="goToSection(4)">Sobre el Cultivo</button>
+      <div class="button-container">
+        <button class="main-button" onclick="goToSection(4)">Sobre el Cultivo</button>
+      </div>
     </div>
 
     <div id="modelo-cultivo" class="section">
@@ -310,7 +334,9 @@
         <li><strong>Ciclo de Cultivo:</strong> Implementamos una **planificación de cultivos escalonados** para garantizar una producción continua y satisfacer la demanda de la comunidad de manera eficiente.</li>
         <li><strong>Capacitación:</strong> Fomentamos la **formación constante** en buenas prácticas agrícolas, higiene rigurosa, control de plagas orgánico y técnicas de cosecha óptimas.</li>
       </ul>
-      <button class="main-button" onclick="goToSection(5)">Qué Ofrecemos</button>
+      <div class="button-container">
+        <button class="main-button" onclick="goToSection(5)">Qué Ofrecemos</button>
+      </div>
     </div>
 
     <div id="informacion-general" class="section">
@@ -323,7 +349,9 @@
         <li>**Asesoramiento personalizado** y acompañamiento profesional en tu camino.</li>
         <li>**Talleres y charlas formativas** para profundizar tus conocimientos.</li>
       </ul>
-      <button class="main-button" onclick="goToSection(6)">Contáctanos</button>
+      <div class="button-container">
+        <button class="main-button" onclick="goToSection(6)">Contáctanos</button>
+      </div>
     </div>
 
     <div id="contacto" class="section">
@@ -335,7 +363,9 @@
          📢 Canal de Telegram: <a href="https://t.me/saludycultivocannabico" target="_blank">@saludycultivocannabico</a><br>
          📧 Email: <a href="mailto:canal.siquem@gmail.com">canal.siquem@gmail.com</a>
       </p>
-      <button class="main-button" onclick="goToSection(0)">Volver al Inicio</button>
+      <div class="button-container">
+        <button class="main-button" onclick="goToSection(0)">Volver al Inicio</button>
+      </div>
     </div>
   </div>
 
@@ -345,11 +375,11 @@
 
   <script>
     const sections = document.querySelectorAll('.section');
-    const container = document.getElementById('sections-container');
+    const navButtons = document.querySelectorAll('nav button');
     let currentIndex = 0;
     let touchStartX = 0;
     let touchMoveX = 0;
-    const threshold = 75; // Mínima distancia de deslizamiento en píxeles para cambiar de sección
+    const threshold = 75; // Mínima distancia de deslizamiento en píxeles
 
     // Función para ir a una sección específica
     function goToSection(index) {
@@ -357,47 +387,53 @@
         // Remover clases de todas las secciones
         sections.forEach((section) => {
           section.classList.remove('active', 'prev');
+          section.style.display = 'none'; // Ocultar por defecto
         });
 
         // Asignar clases para la transición
         sections[currentIndex].classList.add('prev'); // La sección actual se convierte en "anterior"
+        sections[currentIndex].style.display = 'flex'; // Asegurar que sea visible para la transición
         sections[index].classList.add('active'); // La nueva sección se activa
+        sections[index].style.display = 'flex'; // Asegurar que sea visible para la transición
 
         // Actualizar el índice actual
         currentIndex = index;
 
-        // Ocultar las secciones no activas para que no interfieran con el scroll vertical
-        sections.forEach((section, i) => {
-          if (i !== currentIndex && !section.classList.contains('prev')) {
-            section.style.display = 'none';
-          } else {
-            section.style.display = 'flex'; // Asegura que las activas y prev estén visibles para la transición
-          }
-        });
+        // Resaltar botón de navegación activo
+        updateNavButtons();
+      } else if (index === currentIndex) {
+        // Si ya estamos en la sección, solo aseguramos que el botón esté resaltado
+        updateNavButtons();
       }
     }
 
-    // Inicializar la primera sección como activa al cargar la página
-    goToSection(0);
+    // Función para actualizar el resaltado de los botones de navegación
+    function updateNavButtons() {
+      navButtons.forEach((button, i) => {
+        if (i === currentIndex) {
+          button.classList.add('active-nav-btn');
+        } else {
+          button.classList.remove('active-nav-btn');
+        }
+      });
+    }
 
     // --- Funcionalidad de Deslizamiento (Swipe) ---
 
     // Evento de inicio del toque
-    container.addEventListener('touchstart', (e) => {
+    document.addEventListener('touchstart', (e) => { // Usar document para capturar toques en cualquier parte del cuerpo
       touchStartX = e.touches[0].clientX;
-      // Prevenir el scroll vertical del body mientras se desliza horizontalmente
-      document.body.style.overflowY = 'hidden';
-    }, { passive: false }); // Usar { passive: false } para que preventDefault funcione
+      document.body.style.overflowY = 'hidden'; // Prevenir el scroll vertical al iniciar swipe
+    }, { passive: false });
 
     // Evento de movimiento del toque
-    container.addEventListener('touchmove', (e) => {
+    document.addEventListener('touchmove', (e) => {
       touchMoveX = e.touches[0].clientX;
-      // Esto movería visualmente la sección con el dedo, pero puede ser complejo con el posicionamiento absoluto
-      // Por ahora, solo detectamos el swipe al soltar
+      // Puedes añadir un efecto visual aquí si quieres que la página siga el dedo
     });
 
     // Evento de finalización del toque
-    container.addEventListener('touchend', () => {
+    document.addEventListener('touchend', () => {
       const deltaX = touchMoveX - touchStartX;
 
       if (deltaX < -threshold) { // Deslizar hacia la izquierda (next section)
@@ -413,12 +449,22 @@
       // Restablecer valores y permitir el scroll vertical del body
       touchStartX = 0;
       touchMoveX = 0;
-      document.body.style.overflowY = 'auto'; // Restaurar scroll del body si es necesario
+      document.body.style.overflowY = 'auto'; // Restaurar scroll del body
     });
 
+    // Inicializar la primera sección y los botones de navegación
+    goToSection(0); // Llama a goToSection para establecer la primera sección y resaltar su botón.
+
     // Desplazamiento con rueda del ratón (para escritorio)
-    // container.addEventListener('wheel', (e) => {
+    // Puedes descomentar este bloque si quieres que el scroll vertical también cambie de sección
+    // let isScrolling = false;
+    // document.addEventListener('wheel', (e) => {
+    //   if (isScrolling) return; // Evita múltiples eventos de scroll rápidos
+
     //   e.preventDefault(); // Prevenir el scroll por defecto del navegador
+
+    //   isScrolling = true;
+    //   setTimeout(() => { isScrolling = false; }, 800); // Pequeño retraso para permitir un scroll por vez
 
     //   if (e.deltaY > 0) { // Scroll hacia abajo (avanzar)
     //     if (currentIndex < sections.length - 1) {
@@ -429,8 +475,7 @@
     //       goToSection(currentIndex - 1);
     //     }
     //   }
-    // });
-
+    // }, { passive: false }); // { passive: false } para que preventDefault funcione
   </script>
 
 </body>
