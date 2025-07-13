@@ -19,7 +19,11 @@
       background-color: #1a1a1a; /* Fondo más oscuro */
       color: #e0e0e0; /* Texto más claro */
       overscroll-behavior: contain; /* Evita el comportamiento de "rebote" del navegador */
-      overflow: hidden; /* Controlado por el JS para el desplazamiento de secciones */
+      overflow: hidden; /* Controlado por el JS para el desplazamiento de secciones y menú */
+    }
+
+    body.no-scroll {
+      overflow: hidden; /* Evita el scroll del cuerpo cuando el menú lateral está abierto */
     }
 
     body {
@@ -143,8 +147,8 @@
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Sombra suave para un efecto 3D */
     }
 
-    /* Navegación */
-    nav {
+    /* Navegación Principal (para escritorio) */
+    .main-nav {
       position: fixed;
       top: 0;
       width: 100%;
@@ -156,7 +160,7 @@
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
     }
 
-    nav button {
+    .main-nav button {
       background: none;
       color: #fff;
       border: none;
@@ -170,14 +174,14 @@
       white-space: nowrap; /* Evita que el texto del botón se rompa */
     }
 
-    nav button:hover {
+    .main-nav button:hover {
       color: #f44336; /* Color de acento al pasar el mouse */
       background-color: rgba(255, 255, 255, 0.1);
       transform: translateY(-2px); /* Pequeño efecto hover */
     }
 
     /* Estilo para el botón de navegación activo */
-    nav button.active-nav-btn {
+    .main-nav button.active-nav-btn {
       color: #4CAF50; /* Color verde para el botón activo */
       font-weight: 700;
       border-bottom: 2px solid #4CAF50; /* Línea inferior para resaltar */
@@ -236,6 +240,92 @@
       z-index: 999; /* Asegura que esté sobre el contenido pero debajo del nav */
     }
 
+    /* --- Menú de Hamburguesa (Móvil) --- */
+    .hamburger-menu-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+      z-index: 1001; /* Por encima de la navegación principal */
+      display: none; /* Oculto por defecto en escritorio */
+    }
+
+    .hamburger-menu-icon span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Animación de la X */
+    .hamburger-menu-icon.open span:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+    }
+    .hamburger-menu-icon.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger-menu-icon.open span:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+
+    .mobile-side-menu {
+      position: fixed;
+      top: 0;
+      right: -300px; /* Oculto fuera de la pantalla */
+      width: 280px; /* Ancho del menú lateral */
+      height: 100%;
+      background-color: #2a2a2a; /* Fondo del menú */
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      transition: right 0.4s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      padding-top: 80px; /* Espacio para el icono de cierre */
+      display: none; /* Oculto por defecto en escritorio */
+    }
+
+    .mobile-side-menu.open {
+      right: 0; /* Muestra el menú */
+    }
+
+    .mobile-side-menu .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2.5em;
+      color: #fff;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      line-height: 1; /* Para que la X no tenga espacio extra */
+    }
+
+    .mobile-side-menu button {
+      background: none;
+      border: none;
+      color: #e0e0e0;
+      padding: 15px 25px;
+      text-align: left;
+      font-size: 1.2em;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .mobile-side-menu button:hover,
+    .mobile-side-menu button.active-nav-btn {
+      background-color: #3a3a3a;
+      color: #4CAF50;
+    }
+
     /* Media Queries para Responsividad */
     @media (max-width: 768px) {
       h1 {
@@ -260,18 +350,18 @@
         padding: 40px 20px;
       }
 
-      nav {
-        padding: 10px 0;
-        overflow-x: auto; /* Permite scroll horizontal en el nav si hay muchos botones */
-        justify-content: flex-start; /* Alinea los botones al inicio */
+      /* Ocultar la navegación principal y mostrar la hamburguesa en móviles */
+      .main-nav {
+        display: none;
       }
-      nav::-webkit-scrollbar { /* Oculta la barra de scroll del nav */
-          display: none;
+      .hamburger-menu-icon,
+      .mobile-side-menu {
+        display: flex; /* Mostrar en móviles */
       }
 
-      nav button {
-        margin: 0 8px; /* Reducir margen en móviles */
-        font-size: 0.9em;
+      nav button { /* Ajustes para los botones dentro del menú móvil */
+        margin: 0;
+        font-size: 1.1em;
       }
 
       .main-button {
@@ -292,7 +382,7 @@
 </head>
 <body>
 
-  <nav>
+  <nav class="main-nav">
     <button data-section-index="0" onclick="goToSection(0)">Inicio</button>
     <button data-section-index="1" onclick="goToSection(1)">Quiénes Somos</button>
     <button data-section-index="2" onclick="goToSection(2)">Propósito</button>
@@ -301,6 +391,22 @@
     <button data-section-index="5" onclick="goToSection(5)">Información</button>
     <button data-section-index="6" onclick="goToSection(6)">Contacto</button>
   </nav>
+
+  <div class="hamburger-menu-icon" id="hamburger-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="mobile-side-menu" id="mobile-menu">
+    <button class="close-btn" id="close-menu-btn">&times;</button> <button data-section-index="0" onclick="goToSection(0)">Inicio</button>
+    <button data-section-index="1" onclick="goToSection(1)">Quiénes Somos</button>
+    <button data-section-index="2" onclick="goToSection(2)">Propósito</button>
+    <button data-section-index="3" onclick="goToSection(3)">Público Objetivo</button>
+    <button data-section-index="4" onclick="goToSection(4)">Cultivo</button>
+    <button data-section-index="5" onclick="goToSection(5)">Información</button>
+    <button data-section-index="6" onclick="goToSection(6)">Contacto</button>
+  </div>
 
   <div class="container" id="sections-container">
     <div id="inicio" class="section">
@@ -391,7 +497,12 @@
 
   <script>
     const sections = document.querySelectorAll('.section');
-    const navButtons = document.querySelectorAll('nav button');
+    const mainNavButtons = document.querySelectorAll('.main-nav button'); // Botones de la nav principal
+    const mobileNavButtons = document.querySelectorAll('.mobile-side-menu button'); // Botones del menú móvil
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+
     let currentIndex = 0;
     let touchStartX = 0;
     let touchMoveX = 0;
@@ -399,7 +510,7 @@
 
     // Función para ir a una sección específica
     function goToSection(index) {
-      if (index >= 0 && index < sections.length) { // Permite ir a la misma sección para solo actualizar nav
+      if (index >= 0 && index < sections.length) {
         // Remover clases de todas las secciones
         sections.forEach((section) => {
           section.classList.remove('active', 'prev');
@@ -418,15 +529,29 @@
         // Actualizar el índice actual
         currentIndex = index;
 
-        // Resaltar botón de navegación activo
+        // Resaltar botones de navegación activos
         updateNavButtons();
+
+        // Cerrar el menú móvil si está abierto
+        closeMobileMenu();
       }
     }
 
     // Función para actualizar el resaltado de los botones de navegación
     function updateNavButtons() {
-      navButtons.forEach((button, i) => {
+      // Actualizar botones de la navegación principal (escritorio)
+      mainNavButtons.forEach((button, i) => {
         if (i === currentIndex) {
+          button.classList.add('active-nav-btn');
+        } else {
+          button.classList.remove('active-nav-btn');
+        }
+      });
+
+      // Actualizar botones del menú móvil
+      mobileNavButtons.forEach((button, i) => {
+        // El botón de cierre no es un botón de navegación de sección
+        if (button.id !== 'close-menu-btn' && i === currentIndex) {
           button.classList.add('active-nav-btn');
         } else {
           button.classList.remove('active-nav-btn');
@@ -434,64 +559,73 @@
       });
     }
 
+    // --- Funcionalidad del Menú de Hamburguesa ---
+    function openMobileMenu() {
+      mobileMenu.classList.add('open');
+      hamburgerIcon.classList.add('open'); // Cambia el icono a 'X'
+      document.body.classList.add('no-scroll'); // Evita el scroll del cuerpo
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('open');
+      hamburgerIcon.classList.remove('open'); // Vuelve el icono a hamburguesa
+      document.body.classList.remove('no-scroll'); // Permite el scroll del cuerpo
+    }
+
+    hamburgerIcon.addEventListener('click', openMobileMenu);
+    closeMenuBtn.addEventListener('click', closeMobileMenu);
+
+    // Los botones del menú móvil también deben cerrar el menú al hacer clic
+    mobileNavButtons.forEach(button => {
+      if (button.id !== 'close-menu-btn') { // Asegurarse de no añadir al botón de cierre
+        button.addEventListener('click', () => {
+          // goToSection ya llama a closeMobileMenu, así que no es necesario aquí
+        });
+      }
+    });
+
     // --- Funcionalidad de Deslizamiento (Swipe) ---
 
     // Evento de inicio del toque
-    document.addEventListener('touchstart', (e) => { // Usar document para capturar toques en cualquier parte del cuerpo
-      touchStartX = e.touches[0].clientX;
-      document.body.style.overflowY = 'hidden'; // Prevenir el scroll vertical al iniciar swipe
+    document.addEventListener('touchstart', (e) => {
+      // Solo iniciar swipe si el menú móvil no está abierto
+      if (!mobileMenu.classList.contains('open')) {
+        touchStartX = e.touches[0].clientX;
+        document.body.style.overflowY = 'hidden'; // Prevenir el scroll vertical al iniciar swipe
+      }
     }, { passive: false });
 
     // Evento de movimiento del toque
     document.addEventListener('touchmove', (e) => {
-      touchMoveX = e.touches[0].clientX;
-      // Puedes añadir un efecto visual aquí si quieres que la página siga el dedo
+      if (!mobileMenu.classList.contains('open')) {
+        touchMoveX = e.touches[0].clientX;
+      }
     });
 
     // Evento de finalización del toque
     document.addEventListener('touchend', () => {
-      const deltaX = touchMoveX - touchStartX;
+      if (!mobileMenu.classList.contains('open')) {
+        const deltaX = touchMoveX - touchStartX;
 
-      if (deltaX < -threshold) { // Deslizar hacia la izquierda (next section)
-        if (currentIndex < sections.length - 1) {
-          goToSection(currentIndex + 1);
+        if (deltaX < -threshold) { // Deslizar hacia la izquierda (next section)
+          if (currentIndex < sections.length - 1) {
+            goToSection(currentIndex + 1);
+          }
+        } else if (deltaX > threshold) { // Deslizar hacia la derecha (previous section)
+          if (currentIndex > 0) {
+            goToSection(currentIndex - 1);
+          }
         }
-      } else if (deltaX > threshold) { // Deslizar hacia la derecha (previous section)
-        if (currentIndex > 0) {
-          goToSection(currentIndex - 1);
-        }
+
+        // Restablecer valores y permitir el scroll vertical del body
+        touchStartX = 0;
+        touchMoveX = 0;
+        document.body.style.overflowY = 'auto'; // Restaurar scroll del body
       }
-
-      // Restablecer valores y permitir el scroll vertical del body
-      touchStartX = 0;
-      touchMoveX = 0;
-      document.body.style.overflowY = 'auto'; // Restaurar scroll del body
     });
 
-    // Inicializar la primera sección y los botones de navegación
-    goToSection(0); // Llama a goToSection para establecer la primera sección y resaltar su botón.
-
-    // Desplazamiento con rueda del ratón (para escritorio)
-    // Puedes descomentar este bloque si quieres que el scroll vertical también cambie de sección
-    // let isScrolling = false;
-    // document.addEventListener('wheel', (e) => {
-    //   if (isScrolling) return; // Evita múltiples eventos de scroll rápidos
-
-    //   e.preventDefault(); // Prevenir el scroll por defecto del navegador
-
-    //   isScrolling = true;
-    //   setTimeout(() => { isScrolling = false; }, 800); // Pequeño retraso para permitir un scroll por vez
-
-    //   if (e.deltaY > 0) { // Scroll hacia abajo (avanzar)
-    //     if (currentIndex < sections.length - 1) {
-    //       goToSection(currentIndex + 1);
-    //     }
-    //   } else if (e.deltaY < 0) { // Scroll hacia arriba (retroceder)
-    //     if (currentIndex > 0) {
-    //       goToSection(currentIndex - 1);
-    //     }
-    //   }
-    // }, { passive: false }); // { passive: false } para que preventDefault funcione
+    // Inicializar la primera sección y los botones de navegación al cargar la página
+    goToSection(0);
   </script>
 
 </body>
