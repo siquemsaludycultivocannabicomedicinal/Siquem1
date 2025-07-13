@@ -15,6 +15,7 @@
             color: #333; /* Gris oscuro para el texto principal */
             line-height: 1.6;
             overflow-x: hidden; /* Esto quita la opción de hacer scroll horizontal */
+            padding-top: 180px; /* Ajuste inicial para el header fijo, se ajusta con JS */
         }
         .container {
             width: 90%;
@@ -25,25 +26,48 @@
         header {
             background-color: #000; /* Negro */
             color: #fff;
-            padding: 60px 0;
+            padding: 60px 0; /* Padding inicial */
             text-align: center;
-            position: relative;
+            position: fixed; /* Fijo en la parte superior */
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* Asegura que esté por encima de todo */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para destacarlo */
+            transition: padding 0.3s ease, background-color 0.3s ease; /* Transición suave */
+        }
+        header.header-scrolled {
+            padding: 2px 0; /* MUCHO MÁS PEQUEÑO padding cuando se hace scroll */
+            background-color: rgba(0,0,0,0.9); /* Ligeramente transparente */
         }
         header h1 {
             font-family: 'Playfair Display', serif;
             margin: 0;
-            font-size: 4.5em;
+            font-size: 4.5em; /* Tamaño inicial */
             font-weight: 700;
             letter-spacing: 2px;
+            transition: font-size 0.3s ease; /* Transición suave */
+        }
+        header.header-scrolled h1 {
+            font-size: 1.6em; /* MÁS GRANDE cuando se hace scroll para ocupar más espacio */
+            line-height: 1; /* Asegura que no ocupe espacio extra */
         }
         header p {
-            font-size: 1.4em;
+            font-size: 1.4em; /* Tamaño inicial */
             margin-top: 15px;
             color: #d0d0d0; /* Gris claro para el párrafo del encabezado */
             padding-bottom: 15px;
             border-bottom: 3px solid #e74c3c; /* Línea roja debajo del párrafo */
             display: inline-block;
             margin-bottom: 0;
+            transition: font-size 0.3s ease, opacity 0.3s ease, margin 0.3s ease, padding-bottom 0.3s ease; /* Transición suave */
+        }
+        header.header-scrolled p {
+            font-size: 0.1em; /* Prácticamente invisible */
+            opacity: 0; /* Lo hacemos invisible para que no estorbe */
+            margin-top: 0;
+            padding-bottom: 0;
+            border-bottom: none; /* Quitamos la línea cuando está reducido */
         }
 
         /* Estilos para el icono de menú hamburguesa */
@@ -52,33 +76,43 @@
             top: 30px;
             right: 30px;
             cursor: pointer;
-            z-index: 1000;
+            z-index: 1001; /* Asegura que esté encima del header */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             width: 35px;
             height: 25px;
+            transition: top 0.3s ease, width 0.3s ease, height 0.3s ease; /* Transición suave */
+        }
+        header.header-scrolled .menu-icon {
+            top: 6px; /* Ajusta la posición para el header más pequeño */
+            width: 20px; /* Icono aún más pequeño */
+            height: 14px; /* Icono aún más pequeño */
         }
         .menu-icon span {
             display: block;
             height: 4px;
             background-color: #fff; /* Rayas blancas */
             border-radius: 2px;
+            transition: height 0.3s ease;
+        }
+        header.header-scrolled .menu-icon span {
+            height: 2px; /* Rayas aún más delgadas */
         }
 
         /* Estilos para el menú de navegación (simulado) */
         .nav-menu {
-            position: absolute;
+            position: fixed; /* Fijo, no se mueve con el scroll */
             top: 0;
             right: 0;
             width: 250px;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9); /* Negro semitransparente */
+            background-color: rgba(0, 0, 0, 0.95); /* Negro semitransparente más oscuro */
             padding-top: 100px;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
             transform: translateX(100%);
             transition: transform 0.3s ease-in-out;
-            z-index: 999;
+            z-index: 999; /* Por debajo del icono, pero por encima del contenido */
             list-style: none;
             margin: 0;
             padding-left: 0;
@@ -102,7 +136,7 @@
             transition: color 0.2s ease;
         }
         .nav-menu a:hover {
-            color: #ccc; /* Gris claro al pasar el ratón */
+            color: #e74c3c; /* Rojo al pasar el ratón */
         }
 
 
@@ -282,7 +316,7 @@
     </style>
 </head>
 <body>
-    <header>
+    <header id="mainHeader">
         <div class="container">
             <div class="menu-icon">
                 <span></span>
@@ -378,9 +412,9 @@
             <div class="cultivation-model">
                 <h3>Un Cultivo Controlado y de Calidad</h3>
                 <ul>
-                    [span_0](start_span)<li><strong>Tipo de Cultivo:</strong> Optamos por el cultivo **indoor** (en interiores) para tener un control superior y optimizar la producción.[span_0](end_span)</li>
-                    [span_1](start_span)<li><strong>Ciclo de Cultivo:</strong> Planificamos **cultivos escalonados** para garantizar una producción continua y constante.[span_1](end_span)</li>
-                    [span_2](start_span)<li><strong>Capacitación Constante:</strong> Nuestro equipo recibirá formación continua en **buenas prácticas agrícolas**, higiene, control de plagas y técnicas de cosecha.[span_2](end_span)</li>
+                    <li><strong>Tipo de Cultivo:</strong> Optamos por el cultivo **indoor** (en interiores) para tener un control superior y optimizar la producción.</li>
+                    <li><strong>Ciclo de Cultivo:</strong> Planificamos **cultivos escalonados** para garantizar una producción continua y constante.</li>
+                    <li><strong>Capacitación Constante:</strong> Nuestro equipo recibirá formación continua en **buenas prácticas agrícolas**, higiene, control de plagas y técnicas de cosecha.</li>
                 </ul>
             </div>
             <p>El presupuesto inicial para equipamiento, insumos y gastos operativos está actualmente en fase de elaboración.</p>
@@ -398,6 +432,38 @@
         document.querySelector('.menu-icon').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
         });
+
+        // Script para el header fijo al hacer scroll
+        const mainHeader = document.getElementById('mainHeader');
+        const bodyElement = document.body;
+        // Obtener la altura inicial del header para usarla como referencia
+        let initialHeaderHeight = mainHeader.offsetHeight;
+
+        function adjustHeaderOnScroll() {
+            if (window.scrollY > 100) { // Cuando el scroll baja 100px
+                mainHeader.classList.add('header-scrolled');
+                // Ajusta el padding-top del body a la altura actual del header reducido
+                bodyElement.style.paddingTop = mainHeader.offsetHeight + 'px';
+            } else {
+                mainHeader.classList.remove('header-scrolled');
+                // Restaura el padding-top del body a la altura inicial del header grande
+                bodyElement.style.paddingTop = initialHeaderHeight + 'px';
+            }
+        }
+
+        // Función para actualizar la altura inicial del header si cambia el tamaño de la ventana
+        function updateInitialHeaderHeight() {
+            mainHeader.classList.remove('header-scrolled'); // Asegurarse de que esté en estado grande para medir
+            initialHeaderHeight = mainHeader.offsetHeight;
+            adjustHeaderOnScroll(); // Llama a la función para aplicar el padding correcto
+        }
+
+        // Ajustar el padding-top inicial del body al cargar la página
+        window.addEventListener('load', updateInitialHeaderHeight);
+        // Reajustar el padding-top si se cambia el tamaño de la ventana (ej. rotación de móvil)
+        window.addEventListener('resize', updateInitialHeaderHeight);
+
+        window.addEventListener('scroll', adjustHeaderOnScroll);
     </script>
 </body>
 </html>
