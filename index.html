@@ -1,537 +1,402 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Siquem - Salud y Cultivo Cannábico Medicinal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset y Tipografía */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Siquem - Salud y Cultivo Cannábico Medicinal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f8f8f8; /* Gris muy claro para el fondo principal */
+            color: #333; /* Gris oscuro para el texto principal */
+            line-height: 1.6;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+        header {
+            background-color: #000; /* Negro */
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+        }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            font-size: 4.5em;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        header p {
+            font-size: 1.4em;
+            margin-top: 15px;
+            color: #d0d0d0; /* Gris claro para el párrafo del encabezado */
+            padding-bottom: 15px;
+            border-bottom: 3px solid #e74c3c; /* Línea roja debajo del párrafo */
+            display: inline-block;
+            margin-bottom: 0;
+        }
 
-    html, body {
-      height: 100%;
-      font-family: 'Montserrat', sans-serif;
-      background-color: #1a1a1a; /* Fondo más oscuro */
-      color: #e0e0e0; /* Texto más claro */
-      overscroll-behavior: contain; /* Evita el comportamiento de "rebote" del navegador */
-      overflow: hidden; /* Mantiene el scroll del body oculto para el deslizamiento horizontal de secciones */
-    }
+        /* Estilos para el icono de menú hamburguesa */
+        .menu-icon {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 35px;
+            height: 25px;
+        }
+        .menu-icon span {
+            display: block;
+            height: 4px;
+            background-color: #fff; /* Rayas blancas */
+            border-radius: 2px;
+        }
 
-    body.no-scroll {
-      /* Esta clase se usa para asegurar que no haya scroll cuando el menú móvil está abierto.
-         Ya que el body por defecto tiene overflow: hidden, esta clase actúa como un marcador
-         y es útil si en el futuro se cambia el comportamiento por defecto del body. */
-      overflow: hidden;
-    }
+        /* Estilos para el menú de navegación (simulado) */
+        .nav-menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Negro semitransparente */
+            padding-top: 100px;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 999;
+            list-style: none;
+            margin: 0;
+            padding-left: 0;
+            text-align: left;
+        }
+        .nav-menu.active {
+            transform: translateX(0);
+        }
+        .nav-menu li {
+            padding: 15px 30px;
+            border-bottom: 1px solid #333; /* Gris oscuro */
+        }
+        .nav-menu li:last-child {
+            border-bottom: none;
+        }
+        .nav-menu a {
+            color: #fff; /* Texto blanco */
+            text-decoration: none;
+            font-size: 1.1em;
+            display: block;
+            transition: color 0.2s ease;
+        }
+        .nav-menu a:hover {
+            color: #ccc; /* Gris claro al pasar el ratón */
+        }
 
-    body {
-      display: flex;
-      flex-direction: column;
-    }
 
-    /* Contenedor principal para el desplazamiento horizontal */
-    .container {
-      display: flex;
-      width: 100%;
-      height: 100vh; /* Ocupa toda la altura de la pantalla */
-      overflow-y: hidden; /* Oculta la barra de desplazamiento vertical del contenedor */
-    }
-
-    /* Secciones (Pantallas) */
-    .section {
-      display: flex; /* Siempre visible para el posicionamiento absoluto */
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh; /* Altura mínima para cubrir la pantalla */
-      flex-shrink: 0; /* Evita que las secciones se encojan */
-      width: 100vw; /* Cada sección ocupa el ancho completo del viewport */
-      padding: 60px 40px; /* Más padding */
-      text-align: center;
-      box-sizing: border-box; /* Asegura que el padding no aumente el tamaño */
-      overflow-y: auto; /* Permite el scroll vertical DENTRO de la sección si el contenido es largo */
-      -webkit-overflow-scrolling: touch; /* Suaviza el scroll en iOS */
-
-      /* Transiciones para el cambio de sección */
-      position: absolute; /* Para que las secciones se superpongan */
-      top: 0;
-      left: 0;
-      transform: translateX(100vw); /* Por defecto, todas están a la derecha */
-      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transición suave */
-      opacity: 0; /* Empiezan invisibles */
-      visibility: hidden; /* Empiezan ocultas para lectores de pantalla */
-    }
-
-    .section.active {
-      transform: translateX(0); /* La sección activa está en el centro */
-      opacity: 1; /* Visible */
-      visibility: visible; /* Visible para lectores de pantalla */
-    }
-
-    .section.prev {
-      transform: translateX(-100vw); /* La sección anterior se mueve a la izquierda */
-      opacity: 0;
-      visibility: hidden;
-    }
-
-    /* Oculta la barra de desplazamiento en todos los navegadores */
-    .section::-webkit-scrollbar {
-        width: 0;
-        background: transparent;
-    }
-    .section {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
-    }
-
-    h1 {
-      color: #4CAF50;
-      font-size: 3.5em; /* Más grande */
-      margin-bottom: 15px;
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-
-    h2 {
-      color: #66BB6A; /* Tono de verde diferente */
-      font-size: 2.5em;
-      margin-bottom: 25px;
-      font-weight: 600;
-    }
-
-    h3 {
-      color: #90CAF9; /* Azul claro para subtítulos */
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    p {
-      max-width: 800px; /* Ancho máximo para legibilidad */
-      margin: 0 auto 25px;
-      font-size: 1.15em;
-      line-height: 1.7;
-      text-align: left; /* Alineación del texto a la izquierda para mejor lectura en bloques largos */
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto 25px;
-      max-width: 800px;
-      text-align: left;
-      font-size: 1.1em;
-    }
-
-    ul li {
-      margin-bottom: 10px;
-      padding-left: 30px;
-      position: relative;
-    }
-
-    ul li::before {
-      content: '🌱'; /* Icono de hoja o similar */
-      position: absolute;
-      left: 0;
-      color: #4CAF50;
-    }
-
-    /* Estilo para la imagen principal en la sección de inicio */
-    .main-hero-image {
-      max-width: 350px; /* Tamaño máximo del logo, un poco más grande */
-      height: auto;
-      margin-bottom: 30px; /* Espacio debajo de la imagen */
-      border-radius: 15px; /* Bordes ligeramente redondeados */
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
-    }
-
-    /* Navegación Principal (para escritorio) */
-    .main-nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: rgba(34, 34, 34, 0.95); /* Fondo semitransparente */
-      display: flex;
-      justify-content: center;
-      padding: 15px 0; /* Más padding */
-      z-index: 1000; /* Mayor z-index */
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra sutil */
-    }
-
-    .main-nav button {
-      background: none;
-      color: #fff;
-      border: none;
-      margin: 0 15px;
-      font-size: 1.1em; /* Un poco más grande */
-      cursor: pointer;
-      font-weight: 600;
-      padding: 5px 10px;
-      border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-      white-space: nowrap; /* Evita que el texto del botón se rompa */
-    }
-
-    .main-nav button:hover {
-      color: #f44336; /* Color de acento al pasar el mouse */
-      background-color: rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px); /* Pequeño efecto hover */
-    }
-
-    /* Estilo para el botón de navegación activo */
-    .main-nav button.active-nav-btn {
-      color: #4CAF50; /* Color verde para el botón activo */
-      font-weight: 700;
-      border-bottom: 2px solid #4CAF50; /* Línea inferior para resaltar */
-      transform: scale(1.05); /* Ligeramente más grande */
-    }
-
-    /* Botones Principales (CTA) */
-    .main-button {
-      margin-top: 30px; /* Margen superior para separarlo del contenido */
-      padding: 18px 35px; /* Más padding para que se vea más como CTA */
-      background-color: #f44336; /* Rojo de acento */
-      border: none;
-      color: white;
-      font-size: 1.25em; /* Tamaño de fuente más grande */
-      cursor: pointer;
-      border-radius: 8px; /* Bordes más suaves */
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-weight: 700;
-      box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4); /* Sombra para resaltar */
-      text-decoration: none; /* Si se usa como <a> */
-      display: inline-block; /* Si se usa como <a> */
-    }
-
-    .main-button:hover {
-      background-color: #d32f2f;
-      transform: translateY(-3px); /* Efecto de elevación */
-    }
-
-    /* Enlaces de Contacto */
-    .contact-info a {
-      color: #4CAF50;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-
-    .contact-info a:hover {
-      color: #66BB6A;
-      text-decoration: underline;
-    }
-
-    /* Footer */
-    footer {
-      position: fixed; /* Fixed para que siempre esté abajo */
-      bottom: 15px; /* Más espacio */
-      width: 100%;
-      text-align: center;
-      font-size: 0.85em;
-      color: #888;
-      z-index: 999; /* Asegura que esté sobre el contenido pero debajo del nav */
-    }
-
-    /* --- Menú de Hamburguesa (Móvil) --- */
-    .hamburger-menu-icon {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      width: 30px;
-      height: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      cursor: pointer;
-      z-index: 1001; /* Por encima de la navegación principal */
-      display: none; /* Oculto por defecto en escritorio */
-    }
-
-    .hamburger-menu-icon span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      background-color: #fff;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    /* Animación de la X */
-    .hamburger-menu-icon.open span:nth-child(1) {
-      transform: translateY(11px) rotate(45deg);
-    }
-    .hamburger-menu-icon.open span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger-menu-icon.open span:nth-child(3) {
-      transform: translateY(-11px) rotate(-45deg);
-    }
-
-    .mobile-side-menu {
-      position: fixed;
-      top: 0;
-      right: -300px; /* Oculto fuera de la pantalla */
-      width: 280px; /* Ancho del menú lateral */
-      height: 100%;
-      background-color: #2a2a2a; /* Fondo del menú */
-      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
-      z-index: 1000;
-      transition: right 0.4s ease-in-out;
-      display: flex;
-      flex-direction: column;
-      padding-top: 80px; /* Espacio para el icono de cierre */
-      display: none; /* Oculto por defecto en escritorio */
-    }
-
-    .mobile-side-menu.open {
-      right: 0; /* Muestra el menú */
-    }
-
-    .mobile-side-menu .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 2.5em;
-      color: #fff;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      line-height: 1; /* Para que la X no tenga espacio extra */
-    }
-
-    .mobile-side-menu button {
-      background: none;
-      border: none;
-      color: #e0e0e0;
-      padding: 15px 25px;
-      text-align: left;
-      font-size: 1.2em;
-      cursor: pointer;
-      width: 100%;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .mobile-side-menu button:hover,
-    .mobile-side-menu button.active-nav-btn {
-      background-color: #3a3a3a;
-      color: #4CAF50;
-    }
-
-    /* Media Queries para Responsividad */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.5em;
-      }
-
-      h2 {
-        font-size: 1.8em;
-      }
-
-      h3 {
-        font-size: 1.4em;
-      }
-
-      p, ul li {
-        font-size: 1em;
-        padding: 0 20px;
-        text-align: left; /* Asegura la alineación izquierda en pantallas pequeñas también */
-      }
-
-      .section {
-        padding: 40px 20px;
-      }
-
-      /* Ocultar la navegación principal y mostrar la hamburguesa en móviles */
-      .main-nav {
-        display: none;
-      }
-      .hamburger-menu-icon,
-      .mobile-side-menu {
-        display: flex; /* Mostrar en móviles */
-      }
-
-      nav button { /* Ajustes para los botones dentro del menú móvil */
-        margin: 0;
-        font-size: 1.1em;
-      }
-
-      .main-button {
-        padding: 15px 30px; /* Un poco más grande para móviles también */
-        font-size: 1.1em;
-      }
-
-      .main-hero-image {
-        max-width: 250px; /* Ajustar tamaño del logo para móviles */
-        margin-bottom: 20px;
-      }
-    }
-  </style>
+        .section {
+            background-color: #fff; /* Blanco */
+            padding: 50px;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra gris oscura */
+            position: relative;
+        }
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            color: #333; /* Gris oscuro para los títulos de sección */
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #e74c3c; /* Acento rojo para la línea */
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        .section p {
+            margin-bottom: 18px;
+            font-size: 1.15em;
+            color: #444; /* Gris oscuro para el texto principal */
+        }
+        .section strong {
+            color: #000; /* Negro para texto resaltado */
+        }
+        .pillars-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .pillar-item {
+            background-color: #ffffff; /* Blanco */
+            padding: 30px;
+            border-radius: 8px;
+            flex: 1 1 calc(33% - 60px);
+            min-width: 290px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08); /* Sombra gris */
+            text-align: center;
+            border-top: 5px solid #666; /* Borde superior gris */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .pillar-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Sombra más pronunciada */
+        }
+        .pillar-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000; /* Negro para los títulos de los pilares */
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .pillar-item p {
+            font-size: 1.05em;
+            color: #555; /* Gris medio */
+        }
+        .goals-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .goals-list .goal-item {
+            background-color: #ffffff; /* Blanco */
+            padding: 25px;
+            border-left: 6px solid #666; /* Borde izquierdo gris */
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Sombra gris */
+        }
+        .goals-list .goal-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000; /* Negro para los títulos de metas */
+            margin-top: 0;
+            font-size: 1.7em;
+            margin-bottom: 15px;
+        }
+        .goals-list .goal-item ul {
+            list-style: none;
+            padding: 0;
+        }
+        .goals-list .goal-item ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #555; /* Gris medio */
+        }
+        .goals-list .goal-item ul li::before {
+            content: '•'; /* Punto para elementos de lista */
+            position: absolute;
+            left: 0;
+            color: #e74c3c; /* Punto rojo (acento) */
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        .target-audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .target-audience-item {
+            background-color: #ffffff; /* Blanco */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Sombra gris */
+            text-align: center;
+        }
+        .target-audience-item h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000; /* Negro */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .target-audience-item p {
+            font-size: 1em;
+            color: #666; /* Gris más claro */
+        }
+        .cultivation-model {
+            background-color: #ffffff; /* Blanco */
+            padding: 40px;
+            border-radius: 10px;
+            border: 1px solid #ccc; /* Borde gris claro */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra suave */
+        }
+        .cultivation-model h3 {
+            font-family: 'Playfair Display', serif;
+            color: #000; /* Negro para el título de cultivo */
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .cultivation-model ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cultivation-model ul li {
+            font-size: 1.15em;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            color: #444; /* Gris oscuro */
+        }
+        .cultivation-model ul li strong {
+            color: #000; /* Negro */
+        }
+        .cultivation-model ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #e74c3c; /* Punto rojo (acento) */
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        footer {
+            background-color: #000; /* Negro */
+            color: #fff;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+            font-size: 0.95em;
+            border-top: 5px solid #444; /* Borde superior gris oscuro */
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <div class="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#proposito">Nuestro Propósito</a></li>
+                <li><a href="#miembros">Quiénes Somos</a></li>
+                <li><a href="#metas">Nuestras Metas</a></li>
+                <li><a href="#cultivo">Modelo de Cultivo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
 
-  <nav class="main-nav">
-    <button data-section-index="0" onclick="goToSection(0)">Inicio</button>
-    <button data-section-index="1" onclick="goToSection(1)">Quiénes Somos</button>
-    <button data-section-index="2" onclick="goToSection(2)">Propósito</button>
-    <button data-section-index="3" onclick="goToSection(3)">Público Objetivo</button>
-    <button data-section-index="4" onclick="goToSection(4)">Cultivo</button>
-    <button data-section-index="5" onclick="goToSection(5)">Información</button>
-    <button data-section-index="6" onclick="goToSection(6)">Contacto</button>
-  </nav>
+            <h1>SIQUEM</h1>
+            <p>Salud y Cultivo Cannábico Medicinal</p>
+        </div>
+    </header>
 
-  <div class="hamburger-menu-icon" id="hamburger-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
+    <div class="container">
+        <section id="proposito" class="section">
+            <h2>Descubre Nuestro Propósito</h2>
+            <p>En **Siquem**, nos dedicamos a crear un ambiente seguro y responsable donde las personas pueden mejorar su calidad de vida a través del uso terapéutico del cannabis. Nuestro enfoque principal es promover el bienestar, la educación y el compromiso con la comunidad.</p>
 
-  <div class="mobile-side-menu" id="mobile-menu">
-    <button class="close-btn" id="close-menu-btn">&times;</button>
-    <button data-section-index="0" onclick="goToSection(0)">Inicio</button>
-    <button data-section-index="1" onclick="goToSection(1)">Quiénes Somos</button>
-    <button data-section-index="2" onclick="goToSection(2)">Propósito</button>
-    <button data-section-index="3" onclick="goToSection(3)">Público Objetivo</button>
-    <button data-section-index="4" onclick="goToSection(4)">Cultivo</button>
-    <button data-section-index="5" onclick="goToSection(5)">Información</button>
-    <button data-section-index="6" onclick="goToSection(6)">Contacto</button>
-  </div>
+            <h3>Nuestros Pilares Fundamentales</h3>
+            <div class="pillars-grid">
+                <div class="pillar-item">
+                    <h3>Servicio Personalizado y de Calidad</h3>
+                    <p>Ofrecemos orientación individualizada y productos de cannabis medicinal que cumplen con altos estándares de control, siempre con el apoyo de profesionales.</p>
+                </div>
+                <div class="pillar-item">
+                    <h3>Información Confiable y Educación Continua</h3>
+                    <p>Proporcionamos recursos educativos, organizamos charlas y talleres para que nuestros miembros comprendan a fondo los beneficios, usos y regulaciones del cannabis medicinal.</p>
+                </div>
+                <div class="pillar-item">
+                    <h3>Impacto Positivo en la Comunidad</h3>
+                    <p>Estamos comprometidos con acciones sociales que fomentan el desarrollo integral y la inclusión dentro de nuestra comunidad. Buscamos empoderar a nuestros miembros con información y recursos.</p>
+                </div>
+            </div>
+            <p>Nuestro objetivo es generar un impacto positivo en la salud y la conciencia de nuestra comunidad, operando siempre bajo las normativas vigentes y promoviendo un uso consciente y responsable del cannabis medicinal.</p>
+        </section>
 
-  <div class="container" id="sections-container">
-    <div id="inicio" class="section">
-      <img src="cannabis-book.png" alt="Siquem - Cannabis Medicinal y Libro" class="main-hero-image">
-      <h1>Siquem</h1>
-      <h2>Salud y Cultivo Cannábico Medicinal</h2>
-      <p>Explora un mundo de conocimiento y bienestar sobre el cannabis con nosotros. ¡Tu camino hacia el autocultivo y la salud comienza aquí!</p>
-      <button class="main-button" onclick="goToSection(1)">¡Comienza tu Aprendizaje!</button>
+        <section id="miembros" class="section">
+            <h2>¿Quiénes Son Nuestros Miembros?</h2>
+            <p>Nos dirigimos a **adultos interesados en mejorar su salud y bienestar** mediante el uso terapéutico del cannabis.</p>
+            <p>Esto incluye a quienes buscan alternativas naturales y seguras para tratar condiciones como dolor crónico, ansiedad, insomnio, enfermedades inflamatorias u otras condiciones médicas.</p>
+
+            <div class="target-audience-grid">
+                <div class="target-audience-item">
+                    <h3>Pacientes y Usuarios</h3>
+                    <p>Personas que desean explorar el cannabis medicinal para aliviar dolencias físicas o emocionales.</p>
+                </div>
+                <div class="target-audience-item">
+                    <h3>Familiares y Cuidadores</h3>
+                    <p>Aquellos que desean informarse sobre el uso responsable y seguro del cannabis medicinal para apoyar a sus seres queridos.</p>
+                </div>
+                <div class="target-audience-item">
+                    <h3>Profesionales de la Salud</h3>
+                    <p>Expertos del sector salud interesados en ampliar sus conocimientos sobre los tratamientos con cannabis medicinal.</p>
+                </div>
+                <div class="target-audience-item">
+                    <h3>Comunidad en General</h3>
+                    <p>Miembros de la comunidad interesados en la educación, el autocultivo y el bienestar integral.</p>
+                </div>
+            </div>
+            <p>Buscamos crear un entorno seguro y legal que fomente la inclusión, el acceso a información verificada y la participación activa de todos.</p>
+        </section>
+
+        <section id="metas" class="section">
+            <h2>Nuestras Metas Clave</h2>
+            <div class="goals-list">
+                <div class="goal-item">
+                    <h3>Fase Inicial: Cimientos Sólidos</h3>
+                    <p>Nuestra primera meta es establecer una base sólida para el club.</p>
+                    <ul>
+                        <li>Desarrollaremos un **plan de negocio detallado** que incluya objetivos, estrategias y presupuestos.</li>
+                        <li>Crearemos un **modelo de cultivo adaptado** a nuestros recursos y necesidades, para asegurar una producción de calidad.</li>
+                    </ul>
+                </div>
+                <div class="goal-item">
+                    <h3>A Corto Plazo: Legalidad y Operaciones</h3>
+                    <p>En el corto plazo, nos enfocaremos en la puesta en marcha legal y operativa.</p>
+                    <ul>
+                        <li>**Obtendremos todas las licencias y permisos** necesarios para operar de forma legal como un club de cannabis medicinal. Esto implica investigar la normativa, definir nuestra figura legal y gestionar los trámites con las autoridades correspondientes.</li>
+                        <li>**Implementaremos nuestro sistema de cultivo**, asegurando las condiciones óptimas para el desarrollo de las plantas. Esto incluye un seguimiento detallado del proceso, registro técnico y la formación básica de nuestro equipo de trabajo.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="cultivo" class="section">
+            <h2>Nuestro Enfoque de Cultivo</h2>
+            <div class="cultivation-model">
+                <h3>Un Cultivo Controlado y de Calidad</h3>
+                <ul>
+                    <li><strong>Tipo de Cultivo:</strong> Optamos por el cultivo **indoor** (en interiores) para tener un control superior y optimizar la producción.</li>
+                    <li><strong>Ciclo de Cultivo:</strong> Planificamos **cultivos escalonados** para garantizar una producción continua y constante.</li>
+                    <li><strong>Capacitación Constante:</strong> Nuestro equipo recibirá formación continua en **buenas prácticas agrícolas**, higiene, control de plagas y técnicas de cosecha.</li>
+                </ul>
+            </div>
+            <p>El presupuesto inicial para equipamiento, insumos y gastos operativos está actualmente en fase de elaboración.</p>
+        </section>
     </div>
 
-    <div id="quienes-somos" class="section">
-      <h2>¿Quiénes Somos?</h2>
-      <p>Somos <strong>Siquem</strong>, un club de cannabis medicinal comprometido con la salud integral, la educación y el desarrollo comunitario. Creamos un espacio seguro y responsable para que las personas mejoren su calidad de vida a través del uso terapéutico del cannabis, promoviendo el bienestar desde la raíz.</p>
-    </div>
+    <footer id="contacto">
+        <div class="container">
+            <p>&copy; 2025 Siquem - Salud y Cultivo Cannábico Medicinal. Todos los derechos reservados.</p>
+            <p>Ubicación: Córdoba, Argentina</p>
+        </div>
+    </footer>
 
-    <div id="proposito" class="section">
-      <h2>Nuestro Propósito</h2>
-      <h3>Versión Corta:</h3>
-      <p>Ofrecer un espacio seguro y responsable donde las personas puedan mejorar su calidad de vida mediante el uso terapéutico del cannabis. Nos enfocamos en el bienestar, la educación y el compromiso social, brindando asesoramiento profesional, productos de calidad y formación confiable para la comunidad.</p>
-      <h3>Versión Larga:</h3>
-      <p>Crear un espacio seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis. Basamos nuestro proyecto en tres pilares fundamentales: el **bienestar individual**, mediante un servicio de calidad con asesoramiento profesional y productos controlados; la **educación**, ofreciendo contenidos confiables, talleres y charlas formativas; y el **compromiso social**, impulsando acciones comunitarias orientadas al desarrollo integral y la inclusión. Buscamos generar un impacto positivo en la salud, la conciencia y el empoderamiento de nuestra comunidad, cumpliendo con las normativas vigentes y promoviendo una cultura de uso medicinal consciente y responsable.</p>
-    </div>
-
-    <div id="publico-objetivo" class="section">
-      <h2>Público Objetivo</h2>
-      <h3>Versión Breve:</h3>
-      <p>Nos dirigimos a **personas adultas** que buscan mejorar su salud y bienestar a través del uso terapéutico del cannabis, así como a **cuidadores, profesionales de la salud y miembros de la comunidad** interesados en la educación, el autocultivo y el acceso responsable a esta herramienta medicinal.</p>
-      <h3>Versión Detallada:</h3>
-      <p>Nuestro público objetivo está conformado por personas mayores de edad interesadas en mejorar su calidad de vida a través del uso terapéutico del cannabis. Nos enfocamos especialmente en quienes buscan alternativas naturales y seguras para el tratamiento de dolencias físicas o emocionales, como el dolor crónico, la ansiedad, el insomnio, enfermedades inflamatorias u otras condiciones médicas. También nos dirigimos a familiares, cuidadores y profesionales de la salud que deseen aprender más sobre el uso responsable del cannabis medicinal, así como a miembros de la comunidad interesados en la educación, el autocultivo y el bienestar integral. Buscamos llegar a una audiencia consciente, con interés en la salud, la educación y el desarrollo comunitario, promoviendo la inclusión, el acceso a información confiable y la participación activa en un entorno seguro y legal.</p>
-    </div>
-
-    <div id="modelo-cultivo" class="section">
-      <h2>Nuestro Modelo de Cultivo</h2>
-      <ul>
-        <li><strong>Tipo de Cultivo:</strong> **Indoor**, para un control preciso de las condiciones ambientales, lo que nos permite asegurar la máxima calidad y producción constante.</li>
-        <li><strong>Ciclo de Cultivo:</strong> Implementamos una **planificación de cultivos escalonados** para garantizar una producción continua y satisfacer la demanda de la comunidad de manera eficiente.</li>
-        <li><strong>Capacitación:</strong> Fomentamos la **formación constante** en buenas prácticas agrícolas, higiene rigurosa, control de plagas orgánico y técnicas de cosecha óptimas.</li>
-      </ul>
-    </div>
-
-    <div id="informacion-general" class="section">
-      <h2>¿Qué vas a encontrar en Siquem?</h2>
-      <ul>
-        <li><strong>Información educativa</strong> sobre cannabis medicinal basada en evidencia científica.</li>
-        <li><strong>Consejos de autocultivo</strong> paso a paso, desde cero, para un manejo responsable.</li>
-        <li><strong>Herramientas y guías</strong> para tu bienestar físico, mental y espiritual.</li>
-        <li>Acceso a una <strong>comunidad respetuosa y consciente</strong> donde compartir experiencias.</li>
-        <li>**Asesoramiento personalizado** y acompañamiento profesional en tu camino.</li>
-        <li>**Talleres y charlas formativas** para profundizar tus conocimientos.</li>
-      </ul>
-    </div>
-
-    <div id="contacto" class="section">
-      <h2>Contacto</h2>
-      <p class="contact-info">
-         📞 Llamadas: <a href="tel:+543854476091">3854476091</a><br>
-         💬 WhatsApp: <a href="https://wa.me/543854476091" target="_blank">3854476091</a><br>
-         📱 Telegram: <a href="https://t.me/3854476091" target="_blank">@3854476091</a><br>
-         📢 Canal de Telegram: <a href="https://t.me/saludycultivocannabico" target="_blank">@saludycultivocannabico</a><br>
-         📧 Email: <a href="mailto:canal.siquem@gmail.com">canal.siquem@gmail.com</a>
-      </p>
-      <button class="main-button" onclick="goToSection(0)">Volver al Inicio</button>
-    </div>
-  </div>
-
-  <footer>
-    &copy; 2025 Siquem - Salud y Cultivo Cannábico. Todos los derechos reservados.
-  </footer>
-
-  <script>
-    const sections = document.querySelectorAll('.section');
-    const mainNavButtons = document.querySelectorAll('.main-nav button'); // Botones de la nav principal
-    const mobileNavButtons = document.querySelectorAll('.mobile-side-menu button'); // Botones del menú móvil
-    const hamburgerIcon = document.getElementById('hamburger-icon');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-
-    let currentIndex = 0;
-    let touchStartX = 0;
-    let touchMoveX = 0;
-    const threshold = 75; // Mínima distancia de deslizamiento en píxeles
-
-    // Función para ir a una sección específica
-    function goToSection(index) {
-      console.log('Intentando navegar a la sección:', index); // Debug log
-      if (index >= 0 && index < sections.length) {
-        // Remover clases de todas las secciones
-        sections.forEach((section) => {
-          section.classList.remove('active', 'prev');
-          section.style.display = 'none'; // Ocultar por defecto
+    <script>
+        document.querySelector('.menu-icon').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
         });
-
-        // Asignar clases para la transición (si hay cambio de índice)
-        if (index !== currentIndex) {
-            sections[currentIndex].classList.add('prev'); // La sección actual se convierte en "anterior"
-            sections[currentIndex].style.display = 'flex'; // Asegurar que sea visible para la transición
-            console.log('Sección anterior (' + currentIndex + ') configurada para transición.'); // Debug log
-        } else {
-            console.log('Misma sección, solo activando.'); // Debug log
-        }
-
-
-        sections[index].classList.add('active'); // La nueva sección se activa
-        sections[index].style.display = 'flex'; // Asegurar que sea visible para la transición
-        console.log('Nueva sección activa (' + index + ') configurada.'); // Debug log
-
-        // Actualizar el índice actual
-        currentIndex = index;
-
-        // Resaltar botones de navegación activos
-        updateNavButtons();
-
-        // Cerrar el menú móvil si está abierto
-        closeMobileMenu();
-      } else {
-        console.log('Índice de sección inválido:', index); // Debug log
-      }
-    }
-
-    // Función para actualizar el resaltado de los botones de navegación
-    function updateNavButtons() {
-      // Actualizar botones de la navegación principal (escritorio)
-      mainNavButtons.forEach((button, i) => {
-        if (i === currentIndex) {
-          button.classList.add('active-nav-btn');
-        } else {
-          button.classList.remove('active-nav-btn');
-        }
-      });
-
-      // Actualizar botones del menú móvil
-      mobileNavButtons.forEach((button, i) => {
-        // El botón de cierre no es un botón de navegación de sección
-        if (button.id !== 'close-menu-
+    </script>
+</body>
+</html>
