@@ -325,6 +325,8 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#proposito">Nuestro Propósito</a></li>
+                <li><a href="#mision">Nuestra Misión</a></li>
+                <li><a href="#vision">Nuestra Visión</a></li>
                 <li><a href="#miembros">Quiénes Somos</a></li>
                 <li><a href="#metas">Nuestras Metas</a></li>
                 <li><a href="#cultivo">Modelo de Cultivo</a></li>
@@ -338,9 +340,14 @@
 
     <div class="container">
         <section id="proposito" class="section">
-            <h2>Descubre Nuestro Propósito</h2>
-            <p>En **Siquem**, nos dedicamos a crear un ambiente seguro y responsable donde las personas pueden mejorar su calidad de vida a través del uso terapéutico del cannabis. Nuestro enfoque principal es promover el bienestar, la educación y el compromiso con la comunidad.</p>
+            <h2>Nuestro Propósito</h2>
+            <p>El propósito principal de **Siquem** es crear un espacio seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis.</p>
+            <p>Nos enfocamos en el bienestar, la educación y el compromiso social, brindando asesoramiento profesional, productos de calidad controlada y formación confiable para la comunidad. Nuestro objetivo final es generar un impacto positivo en la salud, la conciencia y el empoderamiento de la comunidad, operando siempre bajo las normativas vigentes y promoviendo una cultura de uso medicinal consciente y responsable.</p>
+        </section>
 
+        <section id="mision" class="section">
+            <h2>Nuestra Misión</h2>
+            <p>La misión de Siquem es crear un ambiente seguro y responsable donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis. Nuestro enfoque principal es promover el bienestar, la educación y el compromiso con la comunidad.</p>
             <h3>Nuestros Pilares Fundamentales</h3>
             <div class="pillars-grid">
                 <div class="pillar-item">
@@ -358,6 +365,34 @@
             </div>
             <p>Nuestro objetivo es generar un impacto positivo en la salud y la conciencia de nuestra comunidad, operando siempre bajo las normativas vigentes y promoviendo un uso consciente y responsable del cannabis medicinal.</p>
         </section>
+
+        <section id="vision" class="section">
+            <h2>Nuestra Visión</h2>
+            <p>La visión de Siquem es convertirse en un referente en el ámbito del cannabis medicinal, promoviendo el bienestar integral de sus miembros y asegurando el crecimiento sostenido del proyecto. Aspiramos a ser un espacio donde la calidad de vida de las personas se mejore continuamente a través del uso terapéutico y responsable del cannabis.</p>
+            <h3>Para alcanzar esta visión, el proyecto se enfoca en:</h3>
+            <div class="goals-list">
+                <div class="goal-item">
+                    <h3>Consolidación y Expansión</h3>
+                    <ul>
+                        <li>Establecer una base sólida mediante un plan de negocio detallado y un modelo de cultivo eficiente y escalable que permita una producción continua. Esto sienta las bases para un crecimiento futuro y la sostenibilidad del club.</li>
+                    </ul>
+                </div>
+                <div class="goal-item">
+                    <h3>Excelencia Operativa y Legalidad</h3>
+                    <ul>
+                        <li>Operar con todas las licencias y permisos necesarios, asegurando un marco legal robusto que garantice la seguridad y confianza para todos los miembros. Esto es fundamental para el bienestar del proyecto a largo plazo.</li>
+                    </ul>
+                </div>
+                <div class="goal-item">
+                    <h3>Desarrollo y Adaptación Constante</h3>
+                    <ul>
+                        <li>Mantener un compromiso con la capacitación continua del equipo en buenas prácticas y el seguimiento técnico del cultivo, lo que asegura la adaptabilidad y el desarrollo orgánico del proyecto en un entorno dinámico.</li>
+                    </ul>
+                </div>
+            </div>
+            <p>En esencia, la visión de Siquem es florecer como un club que, mediante una gestión estratégica y un compromiso constante con la calidad y la legalidad, mejore la vida de las personas y asegure su propia prosperidad y evolución en el tiempo.</p>
+        </section>
+
 
         <section id="miembros" class="section">
             <h2>¿Quiénes Son Nuestros Miembros?</h2>
@@ -470,7 +505,7 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault(); // Previene el comportamiento predeterminado del enlace
 
-                const targetId = this.getAttribute('href'); // Obtiene el ID de la sección (#proposito, #miembros, etc.)
+                const targetId = this.getAttribute('href'); // Obtiene el ID de la sección (#proposito, #mision, #vision, etc.)
                 const targetSection = document.querySelector(targetId); // Encuentra el elemento de la sección
 
                 if (targetSection) {
