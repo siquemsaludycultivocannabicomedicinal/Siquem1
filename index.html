@@ -137,7 +137,7 @@
             color: #e74c3c; /* Rojo al pasar el ratón */
         }
 
-        /* Estilos para la nueva sección Hero */
+        /* Estilos para la sección Hero (ahora gestionada por JS) */
         #hero-section {
             background-color: #eee; /* Fondo claro para la sección hero */
             padding: 50px 20px;
@@ -165,7 +165,7 @@
             margin: 0 auto;
         }
 
-        /* Estilos para la nueva sección de Inicio/Overview */
+        /* Estilos para la sección de Inicio/Overview */
         #siquem-overview {
             background-color: #fff;
             padding: 50px;
@@ -537,7 +537,8 @@
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Inicio</a></li>
+                <li><a href="#hero-section" onclick="showSection('hero-section')">Inicio</a></li>
+                <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Qué es Siquem</a></li>
                 <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
                 <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
                 <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
@@ -553,19 +554,34 @@
         </div>
     </header>
 
-    <!-- Nueva Sección Hero con el logo grande -->
-    <section id="hero-section">
-        <div class="container">
+    <div class="container">
+        <!-- SECCIÓN: HERO (BIENVENIDA CON LOGO) -->
+        <section id="hero-section" class="section">
             <!-- IMPORTANTE: Asegúrate de que 'siquem-logo.webp' esté en la misma carpeta que este archivo HTML en tu repositorio de GitHub. -->
             <img src="siquem-logo.webp" alt="Logo de Siquem" class="hero-logo">
             <h2>Bienvenido a Siquem</h2>
             <p>Tu aliado en salud y cultivo cannábico medicinal.</p>
-        </div>
-    </section>
+            <div class="quick-links-footer">
+                <h3>Explora Siquem</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Qué es Siquem</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSection('pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
 
-    <div class="container">
-        <!-- SECCIÓN: SIQUEM - DEFINICIÓN Y OFERTA AL PÚBLICO (INICIO) -->
-        <section id="siquem-overview" class="section">
+        <!-- SECCIÓN: SIQUEM - DEFINICIÓN Y OFERTA AL PÚBLICO (OCULTA POR DEFECTO) -->
+        <section id="siquem-overview" class="section hidden-section">
             <h2>
                 Siquem: Compromiso<br>
                 con Bienestar y Salud<br>
@@ -583,19 +599,12 @@
             </ul>
             <p>En resumen, <strong>Siquem es tu aliado en salud y cultivo cannábico medicinal</strong>, un proyecto que florece con una gestión estratégica y un compromiso constante con la calidad y la legalidad, mejorando la vida de las personas y asegurando su propia prosperidad y evolución en el tiempo, especialmente en lugares donde la salud es un desafío.</p>
 
-            <div class="quick-links">
-                <h3>Explora Más sobre Siquem</h3>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
-                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
-                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
-                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
-                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
-                        <li><a href="#pilares" onclick="showSection('pilares')">Nuestros Pilares</a></li>
-                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
-                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
-                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
             </div>
@@ -610,7 +619,7 @@
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
@@ -635,7 +644,7 @@
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
@@ -667,7 +676,7 @@
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
@@ -706,7 +715,7 @@
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
@@ -743,7 +752,7 @@
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
@@ -775,7 +784,7 @@
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
@@ -798,7 +807,7 @@
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
@@ -832,7 +841,7 @@
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
                     <ul>
-                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
                     </ul>
                 </nav>
@@ -875,15 +884,16 @@
 
         window.addEventListener('load', function() {
             updateInitialHeaderHeight();
-            // Asegura que solo la sección de inicio esté visible al cargar la página
-            showSection('siquem-overview');
+            // Asegura que solo la sección de bienvenida (hero-section) esté visible al cargar la página
+            showSection('hero-section');
         });
         window.addEventListener('resize', updateInitialHeaderHeight);
         window.addEventListener('scroll', adjustHeaderOnScroll);
 
         // Función para mostrar la sección seleccionada y ocultar las demás
         function showSection(sectionId) {
-            const sections = document.querySelectorAll('.container > .section'); // Selecciona todas las secciones de contenido
+            // Selecciona todas las secciones de contenido, incluyendo hero-section ahora que tiene la clase 'section'
+            const sections = document.querySelectorAll('.container > .section');
             sections.forEach(section => {
                 if (section.id === sectionId) {
                     section.classList.remove('hidden-section'); // Muestra la sección
@@ -896,7 +906,7 @@
             document.querySelector('.nav-menu').classList.remove('active');
         }
 
-        // Nueva función para mostrar una sección y desplazarse a un elemento específico dentro de ella
+        // Función para mostrar una sección y desplazarse a un elemento específico dentro de ella
         function showSectionAndScrollTo(sectionId, elementClass) {
             showSection(sectionId); // Primero muestra la sección
             setTimeout(() => { // Espera un poco para que la sección se muestre completamente
