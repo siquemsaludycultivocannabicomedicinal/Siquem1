@@ -176,12 +176,13 @@
         #siquem-overview h2 {
             font-family: 'Playfair Display', serif;
             color: #333;
-            font-size: 2.8em;
+            font-size: 2.2em; /* TAMAÑO DE FUENTE AJUSTADO PARA 3 LÍNEAS */
             font-weight: 700;
             margin-bottom: 30px;
             text-align: center;
             position: relative;
             z-index: 1;
+            line-height: 1.2; /* Ajuste para asegurar que las líneas no estén demasiado espaciadas */
         }
         #siquem-overview h2::after {
             content: '';
@@ -257,6 +258,10 @@
             transform: translateY(-2px);
         }
 
+        /* Clase para ocultar secciones */
+        .hidden-section {
+            display: none;
+        }
 
         .section {
             background-color: #fff; /* Blanco */
@@ -281,7 +286,7 @@
             display: block;
             width: 80px;
             height: 4px;
-            background-color: #e74c3c; /* Acento rojo para la línea */
+            background-color: #e74c3c;
             margin: 15px auto 0;
             border-radius: 2px;
         }
@@ -475,6 +480,43 @@
             text-decoration: underline;
         }
 
+        /* Estilos para el pie de página de navegación rápida */
+        .quick-links-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
+        .quick-links-footer h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5em; /* Un poco más pequeño que el del inicio */
+            color: #000;
+            margin-bottom: 20px;
+        }
+        .quick-links-footer nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px; /* Un poco menos de espacio */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .quick-links-footer nav ul li a {
+            background-color: #555; /* Un gris más oscuro */
+            color: #fff;
+            padding: 8px 15px; /* Un poco más pequeño */
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.9em; /* Un poco más pequeño */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: block;
+        }
+        .quick-links-footer nav ul li a:hover {
+            background-color: #e74c3c;
+            transform: translateY(-2px);
+        }
+
         footer {
             background-color: #000; /* Negro */
             color: #fff;
@@ -495,16 +537,16 @@
                 <span></span>
             </div>
             <ul class="nav-menu">
-                <li><a href="#siquem-overview">Inicio</a></li> <!-- Enlace a la nueva sección de inicio -->
-                <li><a href="#proposito">Nuestro Propósito</a></li>
-                <li><a href="#razon-siquem">¿Por qué Siquem?</a></li>
-                <li><a href="#mision">Nuestra Misión</a></li>
-                <li><a href="#vision">Nuestra Visión</a></li>
-                <li><a href="#miembros">Quiénes Somos</a></li>
-                <li><a href="#pilares">Nuestros Pilares</a></li>
-                <li><a href="#metas">Nuestras Metas</a></li>
-                <li><a href="#cultivo">Modelo de Cultivo</a></li>
-                <li><a href="#contacto-info">Contacto</a></li>
+                <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Inicio</a></li>
+                <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                <li><a href="#pilares" onclick="showSection('pilares')">Nuestros Pilares</a></li>
+                <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
             </ul>
             <h1>SIQUEM</h1>
             <p>Salud y Cultivo Cannábico Medicinal</p>
@@ -522,15 +564,19 @@
     </section>
 
     <div class="container">
-        <!-- NUEVA SECCIÓN: SIQUEM - DEFINICIÓN Y OFERTA AL PÚBLICO (INICIO) -->
+        <!-- SECCIÓN: SIQUEM - DEFINICIÓN Y OFERTA AL PÚBLICO (INICIO) -->
         <section id="siquem-overview" class="section">
-            <h2>Siquem: Un Compromiso con el Bienestar y la Salud Cannábica Medicinal</h2>
+            <h2>
+                Siquem: Compromiso<br>
+                con Bienestar y Salud<br>
+                Cannábica Medicinal
+            </h2>
             <p><strong>¿Qué es Siquem?</strong></p>
-            <p><strong>Siquem</strong> es una organización dedicada a la salud y el cultivo cannábico medicinal, nacida de la profunda necesidad de llevar bienestar y atención a comunidades donde la salud a menudo no llega. Nos consolidamos como un espacio seguro, confiable, accesible y legal, comprometido con la transformación de vidas a través del uso responsable del cannabis.</p>
+            <p><strong>Siquem</strong> es una organización dedicada a la salud y el cultivo cannábico medicinal, nacida de la profunda necesidad de llevar bienestar y atención a comunidades donde la salud a menudo no llega. Nos consolidamos como un espacio seguro, confiable, accesible y legal, comprometido con la transformación de vidas <strong>a futuro, principalmente a través de aceites de cannabis y el uso responsable del mismo.</strong></p>
             <p><strong>¿Qué ofrece y brinda Siquem al público?</strong></p>
             <p>Siquem se enfoca en el bienestar integral, la educación y el compromiso social, ofreciendo una propuesta de valor clara y sólida:</p>
             <ul>
-                <li><strong>Acceso Seguro y Confiable a Cannabis Medicinal:</strong> Proporciona productos de cannabis medicinal que cumplen con altos estándares de calidad controlada. Opera bajo un marco legal robusto, garantizando seguridad y confianza a sus miembros. Implementa un modelo de cultivo <strong>indoor</strong> eficiente y escalable, con ciclos escalonados para asegurar una producción continua y de calidad.</li>
+                <li><strong>Acceso Seguro y Confiable a Cannabis Medicinal:</strong> Proporciona <strong>a futuro</strong> productos de cannabis medicinal que cumplen con altos estándares de calidad controlada, <strong>especialmente aceites de cannabis</strong>. Opera bajo un marco legal robusto, garantizando seguridad y confianza a sus miembros. Implementa un modelo de cultivo <strong>indoor</strong> eficiente y escalable, con ciclos escalonados para asegurar una producción continua y de calidad.</li>
                 <li><strong>Educación y Asesoramiento Profesional:</strong> Brinda orientación individualizada y acompañamiento por parte de profesionales. Ofrece información confiable y educación continua a través de recursos educativos, charlas y talleres. Esto permite a los miembros comprender a fondo los beneficios, usos y regulaciones del cannabis medicinal. Capacita constantemente a su equipo en buenas prácticas agrícolas, higiene, control de plagas y técnicas de cosecha.</li>
                 <li><strong>Impacto Positivo y Empoderamiento Comunitario:</strong> Busca generar un impacto positivo en la salud, la conciencia y el empoderamiento de la comunidad. Se dirige a adultos interesados en mejorar su salud y bienestar (pacientes, familiares, cuidadores, profesionales de la salud y la comunidad en general), fomentando la inclusión y el acceso a información verificada. Promueve una cultura de uso medicinal consciente y responsable del cannabis.</li>
                 <li><strong>Soporte y Conectividad:</strong> Ofrece diversos canales de contacto para consultas y asistencia, incluyendo llamadas telefónicas, WhatsApp y Telegram (mensajes directos y canal comunitario).</li>
@@ -541,29 +587,38 @@
                 <h3>Explora Más sobre Siquem</h3>
                 <nav>
                     <ul>
-                        <li><a href="#proposito">Nuestro Propósito</a></li>
-                        <li><a href="#razon-siquem">¿Por qué Siquem?</a></li>
-                        <li><a href="#mision">Nuestra Misión</a></li>
-                        <li><a href="#vision">Nuestra Visión</a></li>
-                        <li><a href="#miembros">Quiénes Somos</a></li>
-                        <li><a href="#pilares">Nuestros Pilares</a></li>
-                        <li><a href="#metas">Nuestras Metas</a></li>
-                        <li><a href="#cultivo">Modelo de Cultivo</a></li>
-                        <li><a href="#contacto-info">Contacto</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSection('pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
 
-        <!-- SECCIÓN: NUESTRO PROPÓSITO -->
-        <section id="proposito" class="section">
+        <!-- SECCIÓN: NUESTRO PROPÓSITO (OCULTA POR DEFECTO) -->
+        <section id="proposito" class="section hidden-section">
             <h2>Nuestro Propósito</h2>
-            <p>El propósito principal de <strong>Siquem</strong> es crear un espacio seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis.</p>
+            <p>El propósito principal de <strong>Siquem</strong> es crear un espacio seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida <strong>a futuro, principalmente a través del uso terapéutico de aceites de cannabis.</strong></p>
             <p>Nos enfocamos en el bienestar, la educación y el compromiso social, brindando asesoramiento profesional, productos de calidad controlada y formación confiable para la comunidad. Nuestro objetivo final es generar un impacto positivo en la salud, la conciencia y el empoderamiento de la comunidad, operando siempre bajo las normativas vigentes y promoviendo una cultura de uso medicinal consciente y responsable.</p>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
+                    </ul>
+                </nav>
+            </div>
         </section>
 
-        <!-- SECCIÓN: ¿POR QUÉ SIQUEM? NUESTRA ESENCIA (ahora después del overview) -->
-        <section id="razon-siquem" class="section">
+        <!-- SECCIÓN: ¿POR QUÉ SIQUEM? NUESTRA ESENCIA (OCULTA POR DEFECTO) -->
+        <section id="razon-siquem" class="section hidden-section">
             <h2>¿Por qué Siquem? Nuestra Esencia.</h2>
             <p>En <strong>Siquem</strong>, nace de una necesidad profunda: llevar salud y bienestar donde más se necesita.</p>
             <p>En un lugar donde la atención a menudo no llega, decidimos ser la respuesta.</p>
@@ -576,10 +631,19 @@
             </ul>
             <p>Nuestra pasión es clara: <strong>transformar vidas a través del cannabis medicinal</strong>, ofreciendo un camino seguro, informado y lleno de esperanza.</p>
             <p><strong>Siquem: Salud y Bienestar, al alcance de todos, con el respaldo que mereces.</strong></p>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
+                    </ul>
+                </nav>
+            </div>
         </section>
 
-        <!-- SECCIÓN: NUESTRA MISIÓN -->
-        <section id="mision" class="section">
+        <!-- SECCIÓN: NUESTRA MISIÓN (OCULTA POR DEFECTO) -->
+        <section id="mision" class="section hidden-section">
             <h2>Nuestra Misión</h2>
             <p>La misión de Siquem es crear un ambiente seguro y responsable donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis. Nuestro enfoque principal es promover el bienestar, la educación y el compromiso con la comunidad.</p>
             <!-- Título de Pilares Fundamentales movido y estilizado como h2 de sección -->
@@ -599,10 +663,19 @@
                 </div>
             </div>
             <p>Nuestro objetivo es generar un impacto positivo en la salud y la conciencia de nuestra comunidad, operando siempre bajo las normativas vigentes y promoviendo un uso consciente y responsable del cannabis medicinal.</p>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
+                    </ul>
+                </nav>
+            </div>
         </section>
 
-        <!-- SECCIÓN: NUESTRA VISIÓN -->
-        <section id="vision" class="section">
+        <!-- SECCIÓN: NUESTRA VISIÓN (OCULTA POR DEFECTO) -->
+        <section id="vision" class="section hidden-section">
             <h2>Nuestra Visión</h2>
             <p>La visión de Siquem es convertirse en un referente en el ámbito del cannabis medicinal, promoviendo el bienestar integral de sus miembros y asegurando el crecimiento sostenido del proyecto. Aspiramos a ser un espacio donde la calidad de vida de las personas se mejore continuamente a través del uso terapéutico y responsable del cannabis.</p>
             <h3>Para alcanzar esta visión, el proyecto se enfoca en:</h3>
@@ -629,11 +702,20 @@
                 </div>
             </div>
             <p>En esencia, la visión de Siquem es florecer como un club que, mediante una gestión estratégica y un compromiso constante con la calidad y la legalidad, mejore la vida de las personas y asegure su propia prosperidad y evolución en el tiempo.</p>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
+                    </ul>
+                </nav>
+            </div>
         </section>
 
 
-        <!-- SECCIÓN: QUIÉNES SOMOS -->
-        <section id="miembros" class="section">
+        <!-- SECCIÓN: QUIÉNES SOMOS (OCULTA POR DEFECTO) -->
+        <section id="miembros" class="section hidden-section">
             <h2>¿Quiénes Son Nuestros Miembros?</h2>
             <p>Nos dirigimos a <strong>adultos interesados en mejorar su salud y bienestar</strong> mediante el uso terapéutico del cannabis.</p>
             <p>Esto incluye a quienes buscan alternativas naturales y seguras para tratar condiciones como dolor crónico, ansiedad, insomnio, enfermedades inflamatorias u otras condiciones médicas.</p>
@@ -657,10 +739,19 @@
                 </div>
             </div>
             <p>Buscamos crear un entorno seguro y legal que fomente la inclusión, el acceso a información verificada y la participación activa de todos.</p>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
+                    </ul>
+                </nav>
+            </div>
         </section>
 
-        <!-- SECCIÓN: NUESTRAS METAS -->
-        <section id="metas" class="section">
+        <!-- SECCIÓN: NUESTRAS METAS (OCULTA POR DEFECTO) -->
+        <section id="metas" class="section hidden-section">
             <h2>Nuestras Metas Clave</h2>
             <div class="goals-list">
                 <div class="goal-item">
@@ -680,10 +771,19 @@
                     </ul>
                 </div>
             </div>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
+                    </ul>
+                </nav>
+            </div>
         </section>
 
-        <!-- SECCIÓN: MODELO DE CULTIVO -->
-        <section id="cultivo" class="section">
+        <!-- SECCIÓN: MODELO DE CULTIVO (OCULTA POR DEFECTO) -->
+        <section id="cultivo" class="section hidden-section">
             <h2>Nuestro Enfoque de Cultivo</h2>
             <div class="cultivation-model">
                 <h3>Un Cultivo Controlado y de Calidad</h3>
@@ -694,10 +794,19 @@
                 </ul>
             </div>
             <p>El presupuesto inicial para equipamiento, insumos y gastos operativos está actualmente en fase de elaboración.</p>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
+                    </ul>
+                </nav>
+            </div>
         </section>
 
-        <!-- SECCIÓN: INFORMACIÓN DE CONTACTO -->
-        <section id="contacto-info" class="section">
+        <!-- SECCIÓN: INFORMACIÓN DE CONTACTO (OCULTA POR DEFECTO) -->
+        <section id="contacto-info" class="section hidden-section">
             <h2>Contáctanos</h2>
             <p>Estamos aquí para responder a tus preguntas y brindarte el apoyo que necesitas. No dudes en comunicarte con nosotros a través de los siguientes medios:</p>
 
@@ -718,6 +827,15 @@
                 <p>Para mensajes directos o para unirte a nuestra comunidad:</p>
                 <p>Mensaje directo: <a href="https://t.me/Siquem_SaludyCultivoMedicinal" target="_blank">@Siquem_SaludyCultivoMedicinal</a></p>
                 <p>Canal de Telegram: <a href="https://t.me/saludycultivocannabico" target="_blank">Canal de Salud y Cultivo Cannábico</a></p>
+            </div>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#siquem-overview" onclick="showSection('siquem-overview')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-overview-quick-links" onclick="showSectionAndScrollTo('siquem-overview', 'quick-links')">Explorar Más secciones</a></li>
+                    </ul>
+                </nav>
             </div>
         </section>
 
@@ -755,26 +873,39 @@
             adjustHeaderOnScroll();
         }
 
-        window.addEventListener('load', updateInitialHeaderHeight);
+        window.addEventListener('load', function() {
+            updateInitialHeaderHeight();
+            // Asegura que solo la sección de inicio esté visible al cargar la página
+            showSection('siquem-overview');
+        });
         window.addEventListener('resize', updateInitialHeaderHeight);
         window.addEventListener('scroll', adjustHeaderOnScroll);
 
-        document.querySelectorAll('.nav-menu a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-
-                    document.querySelector('.nav-menu').classList.remove('active');
+        // Función para mostrar la sección seleccionada y ocultar las demás
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.container > .section'); // Selecciona todas las secciones de contenido
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.remove('hidden-section'); // Muestra la sección
+                    section.scrollIntoView({ behavior: 'smooth', block: 'start' }); // Desplazarse a la parte superior de la sección
+                } else {
+                    section.classList.add('hidden-section'); // Oculta las demás secciones
                 }
             });
-        });
+            // Oculta el menú de navegación móvil después de seleccionar una sección
+            document.querySelector('.nav-menu').classList.remove('active');
+        }
+
+        // Nueva función para mostrar una sección y desplazarse a un elemento específico dentro de ella
+        function showSectionAndScrollTo(sectionId, elementClass) {
+            showSection(sectionId); // Primero muestra la sección
+            setTimeout(() => { // Espera un poco para que la sección se muestre completamente
+                const targetElement = document.querySelector(`#${sectionId} .${elementClass}`);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100); // Pequeño retraso para asegurar que el elemento esté renderizado
+        }
     </script>
 </body>
 </html>
