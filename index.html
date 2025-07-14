@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Siquem - Salud y Cultivo Cannábico Medicinal</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Se actualizaron las fuentes a Poppins y Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif; /* Fuente para el cuerpo de texto */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -34,7 +35,6 @@
             width: 100%;
             z-index: 1000; /* Asegura que esté por encima de todo */
             box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra para destacarlo */
-            /* Eliminamos las transiciones de padding y font-size para un cambio instantáneo */
             transition: background-color 0.3s ease; /* Solo transición para el color de fondo si se desea */
         }
         header.header-scrolled {
@@ -42,12 +42,11 @@
             background-color: rgba(0,0,0,0.9); /* Ligeramente transparente */
         }
         header h1 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif; /* Fuente para títulos principales */
             margin: 0;
             font-size: 4.5em; /* Tamaño inicial */
-            font-weight: 700;
+            font-weight: 700; /* Negrita para el impacto */
             letter-spacing: 2px;
-            /* Eliminamos la transición de font-size para un cambio instantáneo */
         }
         header.header-scrolled h1 {
             font-size: 1.6em; /* MÁS GRANDE cuando se hace scroll para ocupar más espacio */
@@ -61,7 +60,6 @@
             border-bottom: 3px solid #e74c3c; /* Línea roja debajo del párrafo */
             display: inline-block;
             margin-bottom: 0;
-            /* Eliminamos las transiciones de font-size, opacity, margin, padding-bottom para un cambio instantáneo */
         }
         header.header-scrolled p {
             font-size: 0.1em; /* Prácticamente invisible */
@@ -83,7 +81,6 @@
             justify-content: space-between;
             width: 35px;
             height: 25px;
-            /* Eliminamos las transiciones de top, width, height para un cambio instantáneo */
         }
         header.header-scrolled .menu-icon {
             top: 6px; /* Ajusta la posición para el header más pequeño */
@@ -95,7 +92,6 @@
             height: 4px;
             background-color: #fff; /* Rayas blancas */
             border-radius: 2px;
-            /* Eliminamos la transición de height para un cambio instantáneo */
         }
         header.header-scrolled .menu-icon span {
             height: 2px; /* Rayas aún más delgadas */
@@ -150,9 +146,10 @@
             position: relative;
         }
         .section h2 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif; /* Fuente para títulos de sección */
             color: #333; /* Gris oscuro para los títulos de sección */
             font-size: 2.8em;
+            font-weight: 700; /* Negrita para los títulos de sección */
             margin-bottom: 30px;
             text-align: center;
             position: relative;
@@ -198,9 +195,10 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* Sombra más pronunciada */
         }
         .pillar-item h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif; /* Fuente para títulos de pilares */
             color: #000; /* Negro para los títulos de los pilares */
             font-size: 1.8em;
+            font-weight: 700; /* Negrita para los títulos de pilares */
             margin-bottom: 15px;
         }
         .pillar-item p {
@@ -221,10 +219,11 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* Sombra gris */
         }
         .goals-list .goal-item h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif; /* Fuente para títulos de metas */
             color: #000; /* Negro para los títulos de metas */
             margin-top: 0;
             font-size: 1.7em;
+            font-weight: 700; /* Negrita para los títulos de metas */
             margin-bottom: 15px;
         }
         .goals-list .goal-item ul {
@@ -260,9 +259,10 @@
             text-align: center;
         }
         .target-audience-item h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif; /* Fuente para títulos de audiencia */
             color: #000; /* Negro */
             font-size: 1.5em;
+            font-weight: 700; /* Negrita para los títulos de audiencia */
             margin-bottom: 10px;
         }
         .target-audience-item p {
@@ -277,9 +277,10 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* Sombra suave */
         }
         .cultivation-model h3 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif; /* Fuente para título de cultivo */
             color: #000; /* Negro para el título de cultivo */
             font-size: 2em;
+            font-weight: 700; /* Negrita para el título de cultivo */
             margin-bottom: 20px;
             text-align: center;
         }
@@ -343,7 +344,7 @@
         <!-- SECCIÓN: NUESTRO PROPÓSITO -->
         <section id="proposito" class="section">
             <h2>Nuestro Propósito</h2>
-            <p>El propósito principal de **Siquem** es crear un ambiente seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis.</p>
+            <p>El propósito principal de **Siquem** es crear un espacio seguro, responsable y accesible donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis.</p>
             <p>Nos enfocamos en el bienestar, la educación y el compromiso social, brindando asesoramiento profesional, productos de calidad controlada y formación confiable para la comunidad. Nuestro objetivo final es generar un impacto positivo en la salud, la conciencia y el empoderamiento de la comunidad, operando siempre bajo las normativas vigentes y promoviendo una cultura de uso medicinal consciente y responsable.</p>
         </section>
 
@@ -419,7 +420,7 @@
                 </div>
                 <div class="target-audience-item">
                     <h3>Comunidad en General</h3>
-                    <p>Miembros de la comunidad interesados en la educación, el autocultivo y el bienestar integral.</p>
+                    <p>Miembros de la comunidad interesados in la educación, el autocultivo y el bienestar integral.</p>
                 </div>
             </div>
             <p>Buscamos crear un entorno seguro y legal que fomente la inclusión, el acceso a información verificada y la participación activa de todos.</p>
@@ -475,55 +476,42 @@
             document.querySelector('.nav-menu').classList.toggle('active');
         });
 
-        // Script para el header fijo al hacer scroll - MODIFICADO PARA TRANSICIÓN INSTANTÁNEA
         const mainHeader = document.getElementById('mainHeader');
         const bodyElement = document.body;
-        // Obtener la altura inicial del header para usarla como referencia
         let initialHeaderHeight = mainHeader.offsetHeight;
 
         function adjustHeaderOnScroll() {
-            if (window.scrollY > 100) { // Cuando el scroll baja 100px
+            if (window.scrollY > 100) {
                 mainHeader.classList.add('header-scrolled');
-                // Ajusta el padding-top del body a la altura actual del header reducido
                 bodyElement.style.paddingTop = mainHeader.offsetHeight + 'px';
             } else {
                 mainHeader.classList.remove('header-scrolled');
-                // Restaura el padding-top del body a la altura inicial del header grande
                 bodyElement.style.paddingTop = initialHeaderHeight + 'px';
             }
         }
 
-        // Función para actualizar la altura inicial del header si cambia el tamaño de la ventana
         function updateInitialHeaderHeight() {
-            // Se remueve temporalmente la clase para medir la altura del header en su estado "grande"
             mainHeader.classList.remove('header-scrolled');
             initialHeaderHeight = mainHeader.offsetHeight;
-            // Luego se llama a adjustHeaderOnScroll para aplicar el estado correcto según la posición actual del scroll
             adjustHeaderOnScroll();
         }
 
-        // Ajustar el padding-top inicial del body al cargar la página
         window.addEventListener('load', updateInitialHeaderHeight);
-        // Reajustar el padding-top si se cambia el tamaño de la ventana (ej. rotación de móvil)
         window.addEventListener('resize', updateInitialHeaderHeight);
-
         window.addEventListener('scroll', adjustHeaderOnScroll);
 
-        // Funcionalidad de desplazamiento suave del menú
         document.querySelectorAll('.nav-menu a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Previene el comportamiento predeterminado del enlace
+                e.preventDefault();
 
-                const targetId = this.getAttribute('href'); // Obtiene el ID de la sección (#proposito, #mision, #vision, etc.)
-                const targetSection = document.querySelector(targetId); // Encuentra el elemento de la sección
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
 
                 if (targetSection) {
-                    // Desplazamiento suave a la sección
                     targetSection.scrollIntoView({
                         behavior: 'smooth'
                     });
 
-                    // Oculta el menú después de la selección
                     document.querySelector('.nav-menu').classList.remove('active');
                 }
             });
