@@ -41,16 +41,7 @@
             padding: 2px 0; /* MUCHO MÁS PEQUEÑO padding cuando se hace scroll */
             background-color: rgba(0,0,0,0.9); /* Ligeramente transparente */
         }
-        header .logo {
-            max-height: 100px; /* Altura máxima del logo en estado normal */
-            width: auto;
-            margin-bottom: 10px;
-            transition: max-height 0.3s ease, margin-bottom 0.3s ease; /* Transición suave para el logo */
-        }
-        header.header-scrolled .logo {
-            max-height: 25px; /* Altura máxima del logo cuando se hace scroll */
-            margin-bottom: 0;
-        }
+        /* Se eliminó el estilo .logo del header ya que la imagen fue removida de ahí */
         header h1 {
             font-family: 'Playfair Display', serif; /* Fuente para títulos principales */
             margin: 0;
@@ -156,8 +147,9 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         #hero-section .hero-logo {
-            max-width: 250px; /* Tamaño máximo del logo en la sección hero */
-            height: auto;
+            max-width: 100%; /* Ahora toma el 100% del ancho de su contenedor */
+            width: 100%; /* Asegura que ocupe el ancho completo */
+            height: auto; /* Mantiene la proporción */
             margin-bottom: 20px;
         }
         #hero-section h2 {
@@ -370,8 +362,7 @@
                 <li><a href="#cultivo">Modelo de Cultivo</a></li>
                 <li><a href="#contacto">Contacto</a></li>
             </ul>
-            <!-- Logo pequeño en el encabezado -->
-            <img src="siquem-logo.webp" alt="Logo de Siquem" class="logo">
+            <!-- Se eliminó el logo pequeño de aquí, ahora solo aparece en la sección hero -->
             <h1>SIQUEM</h1>
             <p>Salud y Cultivo Cannábico Medicinal</p>
         </div>
@@ -380,6 +371,7 @@
     <!-- Nueva Sección Hero con el logo grande -->
     <section id="hero-section">
         <div class="container">
+            <!-- IMPORTANTE: Asegúrate de que 'siquem-logo.webp' esté en la misma carpeta que este archivo HTML en tu repositorio de GitHub. -->
             <img src="siquem-logo.webp" alt="Logo de Siquem" class="hero-logo">
             <h2>Bienvenido a Siquem</h2>
             <p>Tu aliado en salud y cultivo cannábico medicinal.</p>
