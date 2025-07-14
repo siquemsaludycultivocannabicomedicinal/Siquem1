@@ -486,6 +486,11 @@
             transform: translateY(-2px);
         }
 
+        /* Clase para ocultar secciones */
+        .hidden-section {
+            display: none;
+        }
+
         footer {
             background-color: #000; /* Negro */
             color: #fff;
@@ -507,13 +512,13 @@
             </div>
             <ul class="nav-menu">
                 <li><a href="#hero-section" onclick="showSection('hero-section')">Inicio</a></li>
-                <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
                 <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
                 <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
                 <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
                 <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
                 <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
-                <li><a href="#pilares" onclick="showSection('pilares')">Nuestros Pilares</a></li>
+                <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                 <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                 <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
                 <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
@@ -553,7 +558,16 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -569,7 +583,16 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -594,13 +617,22 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
 
-        <!-- SECCIÓN: NUESTRA MISIÓN (OCULTA POR DEFECTO) -->
+        <!-- SECCIÓN: NUESTRA MISIÓN -->
         <section id="mision" class="section hidden-section">
             <h2>Nuestra Misión</h2>
             <p>La misión de Siquem es crear un ambiente seguro y responsable donde las personas puedan mejorar su calidad de vida a través del uso terapéutico del cannabis. Nuestro enfoque principal es promover el bienestar, la educación y el compromiso con la comunidad.</p>
@@ -626,13 +658,22 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
 
-        <!-- SECCIÓN: NUESTRA VISIÓN (OCULTA POR DEFECTO) -->
+        <!-- SECCIÓN: NUESTRA VISIÓN -->
         <section id="vision" class="section hidden-section">
             <h2>Nuestra Visión</h2>
             <p>La visión de Siquem es convertirse en un referente en el ámbito del cannabis medicinal, promoviendo el bienestar integral de sus miembros y asegurando el crecimiento sostenido del proyecto. Aspiramos a ser un espacio donde la calidad de vida de las personas se mejore continuamente a través del uso terapéutico y responsable del cannabis.</p>
@@ -665,14 +706,23 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
 
 
-        <!-- SECCIÓN: QUIÉNES SOMOS (OCULTA POR DEFECTO) -->
+        <!-- SECCIÓN: QUIÉNES SOMOS -->
         <section id="miembros" class="section hidden-section">
             <h2>¿Quiénes Son Nuestros Miembros?</h2>
             <p>Nos dirigimos a <strong>adultos interesados en mejorar su salud y bienestar</strong> mediante el uso terapéutico del cannabis.</p>
@@ -702,13 +752,22 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
 
-        <!-- SECCIÓN: NUESTRAS METAS (OCULTA POR DEFECTO) -->
+        <!-- SECCIÓN: NUESTRAS METAS -->
         <section id="metas" class="section hidden-section">
             <h2>Nuestras Metas Clave</h2>
             <div class="goals-list">
@@ -734,13 +793,22 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
 
-        <!-- SECCIÓN: MODELO DE CULTIVO (OCULTA POR DEFECTO) -->
+        <!-- SECCIÓN: MODELO DE CULTIVO -->
         <section id="cultivo" class="section hidden-section">
             <h2>Nuestro Enfoque de Cultivo</h2>
             <div class="cultivation-model">
@@ -757,13 +825,22 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
 
-        <!-- SECCIÓN: INFORMACIÓN DE CONTACTO (OCULTA POR DEFECTO) -->
+        <!-- SECCIÓN: INFORMACIÓN DE CONTACTO -->
         <section id="contacto-info" class="section hidden-section">
             <h2>Contáctanos</h2>
             <p>Estamos aquí para responder a tus preguntas y brindarte el apoyo que necesitas. No dudes en comunicarte con nosotros a través de los siguientes medios:</p>
@@ -791,7 +868,16 @@
                 <nav>
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
-                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-main-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
@@ -841,7 +927,7 @@
 
         // Función para mostrar la sección seleccionada y ocultar las demás
         function showSection(sectionId) {
-            // Selecciona todas las secciones de contenido, incluyendo hero-section ahora que tiene la clase 'section'
+            // Selecciona todas las secciones de contenido con la clase 'section'
             const sections = document.querySelectorAll('.container > .section');
             sections.forEach(section => {
                 if (section.id === sectionId) {
@@ -856,10 +942,11 @@
         }
 
         // Función para mostrar una sección y desplazarse a un elemento específico dentro de ella
-        function showSectionAndScrollTo(sectionId, elementClass) {
-            showSection(sectionId); // Primero muestra la sección
+        // Esto se usa para "Nuestros Pilares" que es un h2 dentro de la sección "Nuestra Misión"
+        function showSectionAndScrollTo(sectionId, elementId) {
+            showSection(sectionId); // Primero muestra la sección que contiene el elemento
             setTimeout(() => { // Espera un poco para que la sección se muestre completamente
-                const targetElement = document.querySelector(`#${sectionId} .${elementClass}`);
+                const targetElement = document.getElementById(elementId);
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
