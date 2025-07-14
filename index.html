@@ -58,7 +58,7 @@
             margin-top: 15px;
             color: #d0d0d0; /* Gris claro para el párrafo del encabezado */
             padding-bottom: 15px;
-            border-bottom: 3px solid #e74c3c; /* Línea roja debajo del párrafo */
+            border-bottom: 3px solid #666; /* Línea gris debajo del párrafo (cambiado de rojo) */
             display: inline-block;
             margin-bottom: 0;
         }
@@ -104,7 +104,7 @@
             top: 0;
             right: 0;
             width: 250px;
-            height: 100%;
+            height: 100%; /* Ocupa toda la altura de la ventana */
             background-color: rgba(0, 0, 0, 0.95); /* Negro semitransparente más oscuro */
             padding-top: 100px;
             box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
@@ -115,6 +115,7 @@
             margin: 0;
             padding-left: 0;
             text-align: left;
+            overflow-y: auto; /* Permite el scroll vertical si el contenido excede la altura */
         }
         .nav-menu.active {
             transform: translateX(0);
@@ -513,6 +514,14 @@
             <ul class="nav-menu">
                 <li><a href="#hero-section" onclick="showSection('hero-section')">Inicio</a></li>
                 <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                <!-- Secciones movidas al principio -->
+                <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
+                <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                <!-- Resto de las secciones -->
                 <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
                 <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
                 <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
@@ -524,7 +533,7 @@
                 <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
             </ul>
             <h1>SIQUEM</h1>
-            <p>Salud y Cultivo Cannábico Medicinal</p>
+            <p>Salud y Cultivo Medicinal</p> <!-- Texto modificado aquí -->
         </div>
     </header>
 
@@ -559,6 +568,14 @@
                     <ul>
                         <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
                         <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <!-- Secciones movidas al principio -->
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <!-- Resto de las secciones -->
                         <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
                         <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
                         <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
@@ -592,6 +609,12 @@
                         <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                         <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                         <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
                         <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
@@ -626,6 +649,12 @@
                         <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                         <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                         <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
                         <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
@@ -667,6 +696,12 @@
                         <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                         <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                         <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
                         <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
@@ -715,6 +750,12 @@
                         <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                         <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                         <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
                         <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
@@ -747,6 +788,23 @@
                 </div>
             </div>
             <p>Buscamos crear un entorno seguro y legal que fomente la inclusión, el acceso a información verificada y la participación activa de todos.</p>
+
+            <!-- SUB-SECCIÓN: NUESTRO EQUIPO (DENTRO DE QUIÉNES SOMOS) -->
+            <div id="nuestro-equipo">
+                <h2>Nuestro Equipo</h2>
+                <div class="target-audience-grid"> <!-- Reutilizamos la cuadrícula para el equipo -->
+                    <div class="target-audience-item">
+                        <h3>Nombre del Profesional 1 / Rol:</h3>
+                        <p>(Espacio para una breve biografía del Profesional 1)</p>
+                    </div>
+                    <div class="target-audience-item">
+                        <h3>Nombre del Profesional 2 / Rol:</h3>
+                        <p>(Espacio para una breve biografía del Profesional 2)</p>
+                    </div>
+                    <!-- Puedes añadir más miembros del equipo aquí -->
+                </div>
+            </div>
+
             <div class="quick-links-footer">
                 <h3>¿Qué más quieres explorar?</h3>
                 <nav>
@@ -761,6 +819,12 @@
                         <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                         <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                         <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
                         <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
@@ -802,6 +866,12 @@
                         <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                         <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                         <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
                         <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
@@ -834,13 +904,235 @@
                         <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                         <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                         <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
                         <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
             </div>
         </section>
 
-        <!-- SECCIÓN: INFORMACIÓN DE CONTACTO -->
+        <!-- SECCIÓN: PREGUNTAS FRECUENTES (FAQ) -->
+        <section id="faq-section" class="section hidden-section">
+            <h2>Preguntas Frecuentes (FAQ)</h2>
+            <div class="faq-item">
+                <h3>¿Qué es el cannabis medicinal?</h3>
+                <p>El cannabis medicinal se refiere al uso de la planta de cannabis o sus extractos para tratar enfermedades o aliviar síntomas. Contiene compuestos llamados cannabinoides, como el CBD y el THC, que interactúan con el sistema endocannabinoide del cuerpo.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Es legal en Argentina/Santiago del Estero?</h3>
+                <p>En Argentina, la Ley 27.350 regula la investigación médica y científica del uso medicinal, terapéutico y paliativo del cannabis y sus derivados. La situación legal puede variar y se recomienda consultar las normativas locales específicas de Santiago del Estero y las regulaciones del ANMAT.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Qué afecciones puede tratar?</h3>
+                <p>El cannabis medicinal se utiliza para diversas afecciones, incluyendo dolor crónico, espasticidad en esclerosis múltiple, náuseas y vómitos por quimioterapia, epilepsia refractaria y ansiedad, entre otras. Siempre bajo supervisión médica.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Cómo se usa el aceite de cannabis?</h3>
+                <p>El aceite de cannabis se administra comúnmente de forma sublingual (debajo de la lengua) para una absorción rápida, o se puede mezclar con alimentos y bebidas. La dosis y la forma de uso deben ser indicadas por un profesional de la salud.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Hay efectos secundarios?</h3>
+                <p>Sí, como cualquier medicamento, el cannabis medicinal puede tener efectos secundarios, que varían según la persona y la dosis. Pueden incluir somnolencia, mareos, boca seca, cambios en el apetito o alteraciones del estado de ánimo. Es fundamental el seguimiento médico.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Cómo me asocio al club/cómo accedo a los productos?</h3>
+                <p>Para asociarse a Siquem y acceder a nuestros productos, es necesario cumplir con los requisitos legales y de membresía. Por favor, contáctenos a través de los canales de comunicación para obtener información detallada sobre el proceso de asociación y acceso.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Necesito una receta médica?</h3>
+                <p>Sí, en Argentina, el acceso al cannabis medicinal con fines terapéuticos requiere de una indicación médica y la inscripción en el REPROCANN para pacientes que cumplen con los requisitos de la ley.</p>
+            </div>
+            <div class="faq-item">
+                <h3>¿Qué diferencia hay entre el CBD y el THC?</h3>
+                <p>El CBD (cannabidiol) y el THC (tetrahidrocannabinol) son los cannabinoides más conocidos. El THC es el principal componente psicoactivo del cannabis, responsable del "subidón". El CBD no es psicoactivo y se asocia con propiedades terapéuticas como antiinflamatorias, ansiolíticas y anticonvulsivantes, sin los efectos eufóricos del THC.</p>
+            </div>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: TESTIMONIOS DE USUARIOS -->
+        <section id="testimonios" class="section hidden-section">
+            <h2>Historias de Nuestros Miembros</h2>
+            <div class="testimonial-item">
+                <h3>Nombre del Miembro 1:</h3>
+                <p>"El aceite de Siquem ha mejorado significativamente mi calidad de vida, reduciendo mi dolor crónico de manera notable. Estoy muy agradecido por el apoyo y la información que me brindaron."</p>
+            </div>
+            <div class="testimonial-item">
+                <h3>Nombre del Miembro 2:</h3>
+                <p>"Gracias a Siquem, he encontrado una alternativa natural para mi ansiedad. El acompañamiento profesional fue clave para entender cómo usarlo correctamente. ¡Altamente recomendado!"</p>
+            </div>
+            <!-- Puedes añadir más testimonios aquí -->
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: INFORMACIÓN DE PRODUCTOS -->
+        <section id="productos" class="section hidden-section">
+            <h2>Nuestros Productos</h2>
+            <p>Próximamente: Detalles de Nuestros Aceites y Concentraciones.</p>
+            <p>Estamos trabajando para ofrecerte una gama completa de productos de cannabis medicinal de la más alta calidad, con información detallada sobre sus propiedades y usos. ¡Mantente atento a nuestras novedades!</p>
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: BLOG O NOTICIAS -->
+        <section id="blog" class="section hidden-section">
+            <h2>Blog y Novedades de Siquem</h2>
+            <div class="blog-post-preview">
+                <h3>Título del Artículo 1: Beneficios del CBD para el Bienestar</h3>
+                <p>Fecha: 10 de Julio, 2025</p>
+                <p>Un vistazo a cómo el cannabidiol puede contribuir a tu equilibrio diario...</p>
+                <a href="#">Leer más</a>
+            </div>
+            <div class="blog-post-preview">
+                <h3>Título del Artículo 2: Guía para el Cultivo Indoor Responsable</h3>
+                <p>Fecha: 5 de Julio, 2025</p>
+                <p>Consejos clave para un cultivo seguro y eficiente en interiores...</p>
+                <a href="#">Leer más</a>
+            </div>
+            <div class="blog-post-preview">
+                <h3>Título del Artículo 3: Mitos y Verdades del Cannabis Medicinal</h3>
+                <p>Fecha: 1 de Julio, 2025</p>
+                <p>Despejamos dudas comunes sobre el uso terapéutico del cannabis...</p>
+                <a href="#">Leer más</a>
+            </div>
+            <!-- Puedes añadir más artículos de blog aquí -->
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CALENDARIO DE EVENTOS -->
+        <section id="eventos" class="section hidden-section">
+            <h2>Eventos y Talleres</h2>
+            <div class="event-item">
+                <h3>Webinar: Introducción al Cannabis Medicinal - 20 de Julio, 2025</h3>
+                <p>Únete a nuestro webinar gratuito para aprender los conceptos básicos del cannabis medicinal y sus aplicaciones.</p>
+            </div>
+            <div class="event-item">
+                <h3>Taller Práctico: Cultivo Básico Indoor - 5 de Agosto, 2025</h3>
+                <p>Descubre las mejores prácticas para iniciar tu propio cultivo de cannabis medicinal en casa.</p>
+            </div>
+            <!-- Puedes añadir más eventos aquí -->
+            <div class="quick-links-footer">
+                <h3>¿Qué más quieres explorar?</h3>
+                <nav>
+                    <ul>
+                        <li><a href="#hero-section" onclick="showSection('hero-section')">Volver a Inicio</a></li>
+                        <li><a href="#siquem-commitment-title" onclick="showSectionAndScrollTo('hero-section', 'siquem-commitment-title')">Nuestro Compromiso</a></li>
+                        <li><a href="#proposito" onclick="showSection('proposito')">Nuestro Propósito</a></li>
+                        <li><a href="#razon-siquem" onclick="showSection('razon-siquem')">¿Por qué Siquem?</a></li>
+                        <li><a href="#mision" onclick="showSection('mision')">Nuestra Misión</a></li>
+                        <li><a href="#vision" onclick="showSection('vision')">Nuestra Visión</a></li>
+                        <li><a href="#miembros" onclick="showSection('miembros')">Quiénes Somos</a></li>
+                        <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
+                        <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
+                        <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
+                        <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: INFORMACIÓN DE CONTACTO (OCULTA POR DEFECTO) -->
         <section id="contacto-info" class="section hidden-section">
             <h2>Contáctanos</h2>
             <p>Estamos aquí para responder a tus preguntas y brindarte el apoyo que necesitas. No dudes en comunicarte con nosotros a través de los siguientes medios:</p>
@@ -877,6 +1169,12 @@
                         <li><a href="#pilares" onclick="showSectionAndScrollTo('mision', 'pilares')">Nuestros Pilares</a></li>
                         <li><a href="#metas" onclick="showSection('metas')">Nuestras Metas</a></li>
                         <li><a href="#cultivo" onclick="showSection('cultivo')">Modelo de Cultivo</a></li>
+                        <li><a href="#faq-section" onclick="showSection('faq-section')">Preguntas Frecuentes</a></li>
+                        <li><a href="#testimonios" onclick="showSection('testimonios')">Testimonios</a></li>
+                        <li><a href="#productos" onclick="showSection('productos')">Nuestros Productos</a></li>
+                        <li><a href="#blog" onclick="showSection('blog')">Blog</a></li>
+                        <li><a href="#equipo" onclick="showSectionAndScrollTo('miembros', 'nuestro-equipo')">Nuestro Equipo</a></li>
+                        <li><a href="#eventos" onclick="showSection('eventos')">Eventos y Talleres</a></li>
                         <li><a href="#contacto-info" onclick="showSection('contacto-info')">Contacto</a></li>
                     </ul>
                 </nav>
@@ -885,7 +1183,7 @@
 
     </div>
 
-    <footer id="contacto">
+    <footer>
         <div class="container">
             <p>&copy; 2025 Siquem - Salud y Cultivo Cannábico Medicinal. Todos los derechos reservados.</p>
             <p>Ubicación: Santiago del Estero, Lavalle, Argentina</p>
@@ -942,7 +1240,6 @@
         }
 
         // Función para mostrar una sección y desplazarse a un elemento específico dentro de ella
-        // Esto se usa para "Nuestros Pilares" que es un h2 dentro de la sección "Nuestra Misión"
         function showSectionAndScrollTo(sectionId, elementId) {
             showSection(sectionId); // Primero muestra la sección que contiene el elemento
             setTimeout(() => { // Espera un poco para que la sección se muestre completamente
